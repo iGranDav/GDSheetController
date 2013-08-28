@@ -1,7 +1,10 @@
 GDSheetViewController
 =====================
 
-``GDSheetViewController`` is a controller to organize multiple controllers or navigation controllers ina  stack of sheets inspired by __*Evernote Food 2.0*__ app.
+``GDSheetViewController`` is a controller to organize multiple controllers or navigation controllers in a  stack of sheets inspired by __*Evernote Food 2.0*__ app.
+
+<img src="https://raw.github.com/iGranDav/GDSheetViewController/master/GDSheetControllerDemo/GDSheetControllerDemo/Images/ios6_screen.png" width="35%"/>
+<img src="https://raw.github.com/iGranDav/GDSheetViewController/master/GDSheetControllerDemo/GDSheetControllerDemo/Images/ios7_screen.png" width="35%"/>
 
 **Note**: If ``GDSheetViewController`` provide a better user experience in portrait it will be usable in landscape too.
 
