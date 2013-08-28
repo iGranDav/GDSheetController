@@ -8,9 +8,56 @@ GDSheetViewController
 
 **Note**: If ``GDSheetViewController`` provide a better user experience in portrait it will be usable in landscape too.
 
-Support
--------
+Installation
+------------
+Installation may be as simple as using it ;-)
+
+###Cocoapods
+Coming soon... (Very soon)
+
+###Manual install
+1. Download the **ZIP** from *Github* and copy the **GDSheetController** directory to your project
+2. Link the ``QuartzCore.framework`` library in your project's Build Phases
+3. ``#import "GDSheetController.h"`` and enjoy :-)
+
+###Support and tested environments
 This component was designed and tested for **iOS 6** and **iOS 7** but may be compatible with iOS 5. No tests has been made on this platform through.
+
+Usage
+-----
+You may need to use ``GDSheetViewController`` as a root view controller. No need to subclass it.
+
+###Example in your appDelegate
+
+```objc
+NSArray *arrayOfControllers = @[vc1, vc2, vc3];
+[GDSheetController sheetControllerWithControllers:arrayOfControllers
+                                          options:nil];
+```
+
+###Options and personalization
+A lot of options are available in ``GHSheetController.h`` and can be passed in options dictionary at init.
+
+Example:
+```objc
+/**
+ * Determines the UIPanGestureRecognizer and UITapGestureRecognizer scope over the sheet.
+ *
+ * When using GDSheetGestureScope_NavBar the gestures are available only on the
+ * navigation bar if your controller is embedded in a navigation controller.
+ * Overwise GDSheetGestureScope_All is performed.
+ *
+ * @default GDSheetGestureScope_AllButTap
+ * @value NSNumber containing a GDSheetGestureScope value
+ */
+extern NSString * const GDSheetControllerSheetGestureScopeKey;
+
+NSArray *arrayOfControllers = @[vc1, vc2, vc3];
+NSDictionary *options       = @{GDSheetControllerSheetGestureScopeKey:@(GDSheetGestureScope_All)}
+
+[GDSheetController sheetControllerWithControllers:arrayOfControllers
+										  options:options];
+```
 
 Screens
 -------

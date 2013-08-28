@@ -34,9 +34,9 @@
     
 //    NSDictionary *options = @{GDSheetControllerSheetAllowUserInteractionInDefaultStateKey:@YES};
     
-    self.sheetController = [[GDSheetController alloc] initWithControllers:@[nav1, nav2, nav3, nav4]
-                                                                  options:nil];
-//    self.sheetController.wantsFullScreenLayout = YES;
+    self.sheetController = [GDSheetController sheetControllerWithControllers:@[nav1, nav2, nav3, nav4]
+                                                                     options:nil];
+    
     self.window.rootViewController = self.sheetController;
     [self.window makeKeyAndVisible];
     return YES;
