@@ -8,7 +8,9 @@
 
 #import "GDMainViewController.h"
 
-@interface GDMainViewController () <UITextFieldDelegate>
+@interface GDMainViewController () <UITextFieldDelegate, UITableViewDataSource, UITableViewDelegate>
+
+@property (nonatomic, strong) NSArray *cellsTitle;
 
 @end
 
@@ -27,6 +29,7 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    self.cellsTitle = @[@"Test cell", @"Another content", @"Working great!", @"Isn't it?"];
 }
 
 - (void)didReceiveMemoryWarning
@@ -85,5 +88,27 @@
     return YES;
 }
 
+////////////////////////////////////////////////////////////////////////////////
+#pragma mark - UITableViewDataSource protocol
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return [self.cellsTitle count];
+}
+
+- (UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    static NSString *identifier = @"cell";
+    
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier];
+    if(!cell)
+    {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
+    }
+    
+    cell.textLabel.text = self.cellsTitle[indexPath.row];
+    
+    return cell;
+}
 
 @end
