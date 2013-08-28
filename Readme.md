@@ -69,6 +69,7 @@ Known Issues
 - Handling orientation changes correctly
  - Still having an issue when moving from landscape right to landscape left.
  - Fullscreen controllers won't go landscape
+- Make an iPad demo
 - If you find any other bugs, please open a new issue.
 
 Thanks to
