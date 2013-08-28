@@ -181,7 +181,7 @@
 - (id)initWithEmbeddedController:(UIViewController*)embeddedController
                  sheetController:(GDSheetController*)sheetController
 {
-    self = [super initWithFrame:embeddedController.view.frame];
+    self = [super initWithFrame:embeddedController.view.bounds];
     if(self)
     {
         [self configureSheetOptions:sheetController];
