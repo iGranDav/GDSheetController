@@ -16,8 +16,9 @@ Screens
 -------
 You can customize spaces between sheets but ``GDSheetViewController`` automatically adapts its layout for displaying all your sheets on screen. That is why you define a maximum space between your sheets.
 
-Issues
-------
+Known Issues
+------------
+- **FIXED** ~~iOS7 support~~
 - Handling orientation changes correctly
  - Still having an issue when moving from landscape right to landscape left.
  - Fullscreen controllers won't go landscape
