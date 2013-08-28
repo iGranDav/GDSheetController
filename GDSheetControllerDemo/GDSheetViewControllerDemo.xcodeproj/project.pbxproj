@@ -7,14 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8122961817CE49EF008FDB68 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8122961717CE49EF008FDB68 /* QuartzCore.framework */; };
+		8122961A17CE4A60008FDB68 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8122961917CE4A60008FDB68 /* CoreGraphics.framework */; };
 		81274AFF17CCB71C009D0A06 /* UIViewController+GDSheetController.m in Sources */ = {isa = PBXBuildFile; fileRef = 81274AFE17CCB71C009D0A06 /* UIViewController+GDSheetController.m */; };
 		8176AA0917CBA437004E6001 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8176AA0717CBA437004E6001 /* Default-568h@2x.png */; };
 		8176AA0A17CBA437004E6001 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8176AA0817CBA437004E6001 /* Default@2x.png */; };
 		8176AA0D17CBA5A1004E6001 /* GDFourthViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8176AA0C17CBA5A1004E6001 /* GDFourthViewController.m */; };
 		81D84D0B17C659B9003B4272 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 81D84D0A17C659B9003B4272 /* Foundation.framework */; };
-		81D84D0D17C659B9003B4272 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 81D84D0C17C659B9003B4272 /* CoreGraphics.framework */; };
 		81D84D0F17C659B9003B4272 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 81D84D0E17C659B9003B4272 /* UIKit.framework */; };
-		81D84D2417C659B9003B4272 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 81D84D2317C659B9003B4272 /* XCTest.framework */; };
 		81D84D2517C659B9003B4272 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 81D84D0A17C659B9003B4272 /* Foundation.framework */; };
 		81D84D2617C659B9003B4272 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 81D84D0E17C659B9003B4272 /* UIKit.framework */; };
 		81D84D4717C65FB1003B4272 /* GDSheetController.m in Sources */ = {isa = PBXBuildFile; fileRef = 81D84D4417C65FB1003B4272 /* GDSheetController.m */; };
@@ -27,14 +27,13 @@
 		81D84D5817C65FEC003B4272 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 81D84D5317C65FEC003B4272 /* main.m */; };
 		81D84D5E17C65FF6003B4272 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 81D84D5A17C65FF6003B4272 /* InfoPlist.strings */; };
 		81D84D6017C65FF6003B4272 /* GDSheetViewControllerDemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 81D84D5D17C65FF6003B4272 /* GDSheetViewControllerDemoTests.m */; };
-		81D84D6417C672AD003B4272 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 81D84D6317C672AD003B4272 /* QuartzCore.framework */; };
 		81D84D7317C7AD35003B4272 /* GDMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 81D84D7117C7AD35003B4272 /* GDMainViewController.m */; };
-		81D84D7417C7AD35003B4272 /* GDMainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 81D84D7217C7AD35003B4272 /* GDMainViewController.xib */; };
 		81D84D7817C7ADCD003B4272 /* GDFirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 81D84D7717C7ADCD003B4272 /* GDFirstViewController.m */; };
 		81D84D7B17C7ADFA003B4272 /* GDSecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 81D84D7A17C7ADFA003B4272 /* GDSecondViewController.m */; };
 		81D84D7E17C7AE0E003B4272 /* GDThirdViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 81D84D7D17C7AE0E003B4272 /* GDThirdViewController.m */; };
 		81D84D8217C7AF09003B4272 /* GDSheetControllerDemo-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 81D84D8017C7AF09003B4272 /* GDSheetControllerDemo-Info.plist */; };
 		81D84D8417C7AF47003B4272 /* GDSheetControllerDemoTests-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 81D84D8317C7AF47003B4272 /* GDSheetControllerDemoTests-Info.plist */; };
+		81DAB65D17CE4EE00060EC53 /* GDMainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 81DAB65C17CE4EE00060EC53 /* GDMainViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,6 +47,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		8122961717CE49EF008FDB68 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		8122961917CE4A60008FDB68 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		81274AFD17CCB71C009D0A06 /* UIViewController+GDSheetController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+GDSheetController.h"; sourceTree = "<group>"; };
 		81274AFE17CCB71C009D0A06 /* UIViewController+GDSheetController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+GDSheetController.m"; sourceTree = "<group>"; };
 		8176AA0717CBA437004E6001 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-568h@2x.png"; path = "Images.xcassets/LaunchImage.launchimage/Default-568h@2x.png"; sourceTree = "<group>"; };
@@ -56,10 +57,8 @@
 		8176AA0C17CBA5A1004E6001 /* GDFourthViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GDFourthViewController.m; sourceTree = "<group>"; };
 		81D84D0717C659B8003B4272 /* GDSheetViewControllerDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GDSheetViewControllerDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		81D84D0A17C659B9003B4272 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
-		81D84D0C17C659B9003B4272 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		81D84D0E17C659B9003B4272 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		81D84D2217C659B9003B4272 /* GDSheetViewControllerDemoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GDSheetViewControllerDemoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		81D84D2317C659B9003B4272 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		81D84D4317C65FB1003B4272 /* GDSheetController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GDSheetController.h; sourceTree = "<group>"; };
 		81D84D4417C65FB1003B4272 /* GDSheetController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GDSheetController.m; sourceTree = "<group>"; };
 		81D84D4517C65FB1003B4272 /* GDSheetView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GDSheetView.h; sourceTree = "<group>"; };
@@ -71,10 +70,8 @@
 		81D84D5317C65FEC003B4272 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		81D84D5B17C65FF6003B4272 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		81D84D5D17C65FF6003B4272 /* GDSheetViewControllerDemoTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GDSheetViewControllerDemoTests.m; sourceTree = "<group>"; };
-		81D84D6317C672AD003B4272 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		81D84D7017C7AD35003B4272 /* GDMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GDMainViewController.h; sourceTree = "<group>"; };
 		81D84D7117C7AD35003B4272 /* GDMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GDMainViewController.m; sourceTree = "<group>"; };
-		81D84D7217C7AD35003B4272 /* GDMainViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GDMainViewController.xib; sourceTree = "<group>"; };
 		81D84D7617C7ADCD003B4272 /* GDFirstViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GDFirstViewController.h; sourceTree = "<group>"; };
 		81D84D7717C7ADCD003B4272 /* GDFirstViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GDFirstViewController.m; sourceTree = "<group>"; };
 		81D84D7917C7ADFA003B4272 /* GDSecondViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GDSecondViewController.h; sourceTree = "<group>"; };
@@ -84,6 +81,7 @@
 		81D84D8017C7AF09003B4272 /* GDSheetControllerDemo-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GDSheetControllerDemo-Info.plist"; sourceTree = "<group>"; };
 		81D84D8117C7AF09003B4272 /* GDSheetControllerDemo-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "GDSheetControllerDemo-Prefix.pch"; sourceTree = "<group>"; };
 		81D84D8317C7AF47003B4272 /* GDSheetControllerDemoTests-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GDSheetControllerDemoTests-Info.plist"; sourceTree = "<group>"; };
+		81DAB65C17CE4EE00060EC53 /* GDMainViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GDMainViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,8 +89,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				81D84D6417C672AD003B4272 /* QuartzCore.framework in Frameworks */,
-				81D84D0D17C659B9003B4272 /* CoreGraphics.framework in Frameworks */,
+				8122961A17CE4A60008FDB68 /* CoreGraphics.framework in Frameworks */,
+				8122961817CE49EF008FDB68 /* QuartzCore.framework in Frameworks */,
 				81D84D0F17C659B9003B4272 /* UIKit.framework in Frameworks */,
 				81D84D0B17C659B9003B4272 /* Foundation.framework in Frameworks */,
 			);
@@ -102,7 +100,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				81D84D2417C659B9003B4272 /* XCTest.framework in Frameworks */,
 				81D84D2617C659B9003B4272 /* UIKit.framework in Frameworks */,
 				81D84D2517C659B9003B4272 /* Foundation.framework in Frameworks */,
 			);
@@ -143,11 +140,10 @@
 		81D84D0917C659B8003B4272 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				81D84D6317C672AD003B4272 /* QuartzCore.framework */,
+				8122961917CE4A60008FDB68 /* CoreGraphics.framework */,
+				8122961717CE49EF008FDB68 /* QuartzCore.framework */,
 				81D84D0A17C659B9003B4272 /* Foundation.framework */,
-				81D84D0C17C659B9003B4272 /* CoreGraphics.framework */,
 				81D84D0E17C659B9003B4272 /* UIKit.framework */,
-				81D84D2317C659B9003B4272 /* XCTest.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -221,7 +217,7 @@
 			children = (
 				81D84D7017C7AD35003B4272 /* GDMainViewController.h */,
 				81D84D7117C7AD35003B4272 /* GDMainViewController.m */,
-				81D84D7217C7AD35003B4272 /* GDMainViewController.xib */,
+				81DAB65C17CE4EE00060EC53 /* GDMainViewController.xib */,
 				81D84D7617C7ADCD003B4272 /* GDFirstViewController.h */,
 				81D84D7717C7ADCD003B4272 /* GDFirstViewController.m */,
 				81D84D7917C7ADFA003B4272 /* GDSecondViewController.h */,
@@ -315,10 +311,10 @@
 			files = (
 				8176AA0A17CBA437004E6001 /* Default@2x.png in Resources */,
 				81D84D8217C7AF09003B4272 /* GDSheetControllerDemo-Info.plist in Resources */,
-				81D84D7417C7AD35003B4272 /* GDMainViewController.xib in Resources */,
 				81D84D5717C65FEC003B4272 /* Images.xcassets in Resources */,
 				8176AA0917CBA437004E6001 /* Default-568h@2x.png in Resources */,
 				81D84D5417C65FEC003B4272 /* InfoPlist.strings in Resources */,
+				81DAB65D17CE4EE00060EC53 /* GDMainViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

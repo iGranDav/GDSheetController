@@ -32,6 +32,7 @@
 #pragma mark - Imports
 
 #import "GDSheetView.h"
+#import <QuartzCore/QuartzCore.h>
 
 ////////////////////////////////////////////////////////////////////////////////
 #pragma mark - Types
