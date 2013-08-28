@@ -69,15 +69,17 @@ Known Issues
 - Handling orientation changes correctly
  - Still having an issue when moving from landscape right to landscape left.
  - Fullscreen controllers won't go landscape
+- If you find any other bugs, please open a new issue.
 
 Thanks to
 ---------
 This component is *highly* inspired from [``KLNoteViewController``](https://github.com/KieranLafferty/KLNoteViewController) by [Kieran Lafferty](https://github.com/kieranlafferty). Thanks to him.
 
-Got some ideas from [``PKRevealController``](https://github.com/pkluz/PKRevealController) too, thanks to [pkluz](https://github.com/pkluz).
+Got some ideas from [``PKRevealController``](https://github.com/pkluz/PKRevealController) too, thanks to [Philip Kluz](https://github.com/pkluz).
 
-Licence
+License
 -------
+I used MIT license, basically you can do whatever you want, I appreciate attribution or a simple link to this page if you used it.
 
 Copyright (c) 2013 David Bonnet (aka iGranDav)
 
