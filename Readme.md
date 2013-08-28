@@ -1,12 +1,12 @@
-GDSheetViewController
+GDSheetController
 =====================
 
-``GDSheetViewController`` is a controller to organize multiple controllers or navigation controllers in a  stack of sheets inspired by __*Evernote Food 2.0*__ app.
+``GDSheetController`` is a controller to organize multiple controllers or navigation controllers in a stack of sheets inspired by __*Evernote Food 2.0*__ app.
 
-<img src="https://raw.github.com/iGranDav/GDSheetViewController/master/GDSheetControllerDemo/GDSheetControllerDemo/Images/ios6_screen.png" width="35%"/>
-<img src="https://raw.github.com/iGranDav/GDSheetViewController/master/GDSheetControllerDemo/GDSheetControllerDemo/Images/ios7_screen.png" width="35%"/>
+<img src="https://raw.github.com/iGranDav/GDSheetController/master/GDSheetControllerDemo/GDSheetControllerDemo/Images/ios6_screen.png" width="35%"/>
+<img src="https://raw.github.com/iGranDav/GDSheetController/master/GDSheetControllerDemo/GDSheetControllerDemo/Images/ios7_screen.png" width="35%"/>
 
-**Note**: If ``GDSheetViewController`` provide a better user experience in portrait it will be usable in landscape too.
+**Note**: If ``GDSheetController`` provide a better user experience in portrait it will be usable in landscape too.
 
 Installation
 ------------
@@ -25,7 +25,7 @@ This component was designed and tested for **iOS 6** and **iOS 7** but may be co
 
 Usage
 -----
-You may need to use ``GDSheetViewController`` as a root view controller. No need to subclass it.
+You may need to use ``GDSheetController`` as a root view controller. No need to subclass it.
 
 ###Example in your appDelegate
 
@@ -61,7 +61,7 @@ NSDictionary *options       = @{GDSheetControllerSheetGestureScopeKey:@(GDSheetG
 
 Screens
 -------
-You can customize spaces between sheets but ``GDSheetViewController`` automatically adapts its layout for displaying all your sheets on screen. That is why you define a maximum space between your sheets.
+You can customize spaces between sheets but ``GDSheetController`` automatically adapts its layout for displaying all your sheets on screen. That is why you define a maximum space between your sheets.
 
 Known Issues
 ------------
