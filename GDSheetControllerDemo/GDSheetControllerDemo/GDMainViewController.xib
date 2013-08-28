@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="4504" systemVersion="12E55" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+    <dependencies>
+        <deployment defaultVersion="1536" identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3734.1"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="GDMainViewController">
+            <connections>
+                <outlet property="contentLabel" destination="80x-DR-TbZ" id="kE2-T6-NeV"/>
+                <outlet property="view" destination="1" id="3"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="1">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Main content" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="80x-DR-TbZ">
+                    <rect key="frame" x="110" y="55" width="101" height="21"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="SQl-Ll-yO5">
+                    <rect key="frame" x="20" y="130" width="280" height="145"/>
+                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="145" id="fdk-WS-vhL"/>
+                    </constraints>
+                </tableView>
+                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8O2-cx-nVe">
+                    <rect key="frame" x="29" y="314" width="51" height="31"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                </switch>
+                <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="KHw-lV-dyv">
+                    <rect key="frame" x="116" y="316" width="176" height="29"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="176" id="g0B-Cu-VrX"/>
+                    </constraints>
+                    <segments>
+                        <segment title="First"/>
+                        <segment title="Second"/>
+                    </segments>
+                </segmentedControl>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BU9-YC-a1d">
+                    <rect key="frame" x="90" y="423" width="141" height="43"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="141" id="0PE-9K-Klr"/>
+                        <constraint firstAttribute="height" constant="43" id="902-hm-mHi"/>
+                    </constraints>
+                    <state key="normal" title="Test Button">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                </button>
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Enter text for testing" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5sF-tw-Kbe">
+                    <rect key="frame" x="29" y="84" width="263" height="30"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
+                    <connections>
+                        <outlet property="delegate" destination="-1" id="yEr-Ro-GT8"/>
+                    </connections>
+                </textField>
+                <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="XEc-5f-ulr">
+                    <rect key="frame" x="27" y="372" width="267" height="34"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                </slider>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstAttribute="centerX" secondItem="BU9-YC-a1d" secondAttribute="centerX" constant="-0.5" id="15u-PW-ZU5"/>
+                <constraint firstItem="SQl-Ll-yO5" firstAttribute="leading" secondItem="1" secondAttribute="leading" constant="20" id="9Fs-QP-gXp"/>
+                <constraint firstAttribute="trailing" secondItem="SQl-Ll-yO5" secondAttribute="trailing" constant="20" id="9iX-o7-1ly"/>
+                <constraint firstItem="SQl-Ll-yO5" firstAttribute="top" secondItem="5sF-tw-Kbe" secondAttribute="bottom" constant="16" id="BVr-zb-D9k"/>
+                <constraint firstItem="5sF-tw-Kbe" firstAttribute="leading" secondItem="1" secondAttribute="leading" constant="29" id="DQo-ez-yxE"/>
+                <constraint firstItem="8O2-cx-nVe" firstAttribute="leading" secondItem="1" secondAttribute="leading" constant="29" id="HTS-ZO-Qtl"/>
+                <constraint firstItem="80x-DR-TbZ" firstAttribute="top" secondItem="1" secondAttribute="top" constant="55" id="Jze-WV-Oz9"/>
+                <constraint firstItem="5sF-tw-Kbe" firstAttribute="top" secondItem="80x-DR-TbZ" secondAttribute="bottom" constant="8" id="NVo-1n-sij"/>
+                <constraint firstItem="BU9-YC-a1d" firstAttribute="top" secondItem="XEc-5f-ulr" secondAttribute="bottom" constant="18" id="RW0-XZ-qRq"/>
+                <constraint firstItem="KHw-lV-dyv" firstAttribute="top" secondItem="SQl-Ll-yO5" secondAttribute="bottom" constant="41" id="XMc-O2-mU2"/>
+                <constraint firstAttribute="trailing" secondItem="5sF-tw-Kbe" secondAttribute="trailing" constant="28" id="Y3s-wk-SiK"/>
+                <constraint firstItem="XEc-5f-ulr" firstAttribute="leading" secondItem="1" secondAttribute="leading" constant="29" id="aAt-Tf-kci"/>
+                <constraint firstAttribute="trailing" secondItem="KHw-lV-dyv" secondAttribute="trailing" constant="28" id="dcZ-p3-dSq"/>
+                <constraint firstAttribute="centerX" secondItem="80x-DR-TbZ" secondAttribute="centerX" id="hCi-kk-Lgd"/>
+                <constraint firstItem="XEc-5f-ulr" firstAttribute="top" secondItem="KHw-lV-dyv" secondAttribute="bottom" constant="28" id="jSl-AN-eF4"/>
+                <constraint firstItem="8O2-cx-nVe" firstAttribute="centerY" secondItem="KHw-lV-dyv" secondAttribute="centerY" constant="-0.5" id="lMd-oY-HJ5"/>
+                <constraint firstAttribute="trailing" secondItem="XEc-5f-ulr" secondAttribute="trailing" constant="28" id="v0a-Zd-Mb5"/>
+            </constraints>
+            <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
+            <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+        </view>
+    </objects>
+</document>

@@ -1,0 +1,565 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		81274AFF17CCB71C009D0A06 /* UIViewController+GDSheetController.m in Sources */ = {isa = PBXBuildFile; fileRef = 81274AFE17CCB71C009D0A06 /* UIViewController+GDSheetController.m */; };
+		8176AA0917CBA437004E6001 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8176AA0717CBA437004E6001 /* Default-568h@2x.png */; };
+		8176AA0A17CBA437004E6001 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8176AA0817CBA437004E6001 /* Default@2x.png */; };
+		8176AA0D17CBA5A1004E6001 /* GDFourthViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8176AA0C17CBA5A1004E6001 /* GDFourthViewController.m */; };
+		81D84D0B17C659B9003B4272 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 81D84D0A17C659B9003B4272 /* Foundation.framework */; };
+		81D84D0D17C659B9003B4272 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 81D84D0C17C659B9003B4272 /* CoreGraphics.framework */; };
+		81D84D0F17C659B9003B4272 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 81D84D0E17C659B9003B4272 /* UIKit.framework */; };
+		81D84D2417C659B9003B4272 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 81D84D2317C659B9003B4272 /* XCTest.framework */; };
+		81D84D2517C659B9003B4272 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 81D84D0A17C659B9003B4272 /* Foundation.framework */; };
+		81D84D2617C659B9003B4272 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 81D84D0E17C659B9003B4272 /* UIKit.framework */; };
+		81D84D4717C65FB1003B4272 /* GDSheetController.m in Sources */ = {isa = PBXBuildFile; fileRef = 81D84D4417C65FB1003B4272 /* GDSheetController.m */; };
+		81D84D4817C65FB1003B4272 /* GDSheetController.m in Sources */ = {isa = PBXBuildFile; fileRef = 81D84D4417C65FB1003B4272 /* GDSheetController.m */; };
+		81D84D4917C65FB1003B4272 /* GDSheetView.m in Sources */ = {isa = PBXBuildFile; fileRef = 81D84D4617C65FB1003B4272 /* GDSheetView.m */; };
+		81D84D4A17C65FB1003B4272 /* GDSheetView.m in Sources */ = {isa = PBXBuildFile; fileRef = 81D84D4617C65FB1003B4272 /* GDSheetView.m */; };
+		81D84D5417C65FEC003B4272 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 81D84D4C17C65FEC003B4272 /* InfoPlist.strings */; };
+		81D84D5517C65FEC003B4272 /* GDAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 81D84D4F17C65FEC003B4272 /* GDAppDelegate.m */; };
+		81D84D5717C65FEC003B4272 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 81D84D5217C65FEC003B4272 /* Images.xcassets */; };
+		81D84D5817C65FEC003B4272 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 81D84D5317C65FEC003B4272 /* main.m */; };
+		81D84D5E17C65FF6003B4272 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 81D84D5A17C65FF6003B4272 /* InfoPlist.strings */; };
+		81D84D6017C65FF6003B4272 /* GDSheetViewControllerDemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 81D84D5D17C65FF6003B4272 /* GDSheetViewControllerDemoTests.m */; };
+		81D84D6417C672AD003B4272 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 81D84D6317C672AD003B4272 /* QuartzCore.framework */; };
+		81D84D7317C7AD35003B4272 /* GDMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 81D84D7117C7AD35003B4272 /* GDMainViewController.m */; };
+		81D84D7417C7AD35003B4272 /* GDMainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 81D84D7217C7AD35003B4272 /* GDMainViewController.xib */; };
+		81D84D7817C7ADCD003B4272 /* GDFirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 81D84D7717C7ADCD003B4272 /* GDFirstViewController.m */; };
+		81D84D7B17C7ADFA003B4272 /* GDSecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 81D84D7A17C7ADFA003B4272 /* GDSecondViewController.m */; };
+		81D84D7E17C7AE0E003B4272 /* GDThirdViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 81D84D7D17C7AE0E003B4272 /* GDThirdViewController.m */; };
+		81D84D8217C7AF09003B4272 /* GDSheetControllerDemo-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 81D84D8017C7AF09003B4272 /* GDSheetControllerDemo-Info.plist */; };
+		81D84D8417C7AF47003B4272 /* GDSheetControllerDemoTests-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 81D84D8317C7AF47003B4272 /* GDSheetControllerDemoTests-Info.plist */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		81D84D2717C659B9003B4272 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 81D84CFF17C659B8003B4272 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 81D84D0617C659B8003B4272;
+			remoteInfo = GDSheetViewControllerDemo;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		81274AFD17CCB71C009D0A06 /* UIViewController+GDSheetController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+GDSheetController.h"; sourceTree = "<group>"; };
+		81274AFE17CCB71C009D0A06 /* UIViewController+GDSheetController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+GDSheetController.m"; sourceTree = "<group>"; };
+		8176AA0717CBA437004E6001 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-568h@2x.png"; path = "Images.xcassets/LaunchImage.launchimage/Default-568h@2x.png"; sourceTree = "<group>"; };
+		8176AA0817CBA437004E6001 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default@2x.png"; path = "Images.xcassets/LaunchImage.launchimage/Default@2x.png"; sourceTree = "<group>"; };
+		8176AA0B17CBA5A1004E6001 /* GDFourthViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GDFourthViewController.h; sourceTree = "<group>"; };
+		8176AA0C17CBA5A1004E6001 /* GDFourthViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GDFourthViewController.m; sourceTree = "<group>"; };
+		81D84D0717C659B8003B4272 /* GDSheetViewControllerDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GDSheetViewControllerDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		81D84D0A17C659B9003B4272 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		81D84D0C17C659B9003B4272 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		81D84D0E17C659B9003B4272 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		81D84D2217C659B9003B4272 /* GDSheetViewControllerDemoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GDSheetViewControllerDemoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		81D84D2317C659B9003B4272 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		81D84D4317C65FB1003B4272 /* GDSheetController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GDSheetController.h; sourceTree = "<group>"; };
+		81D84D4417C65FB1003B4272 /* GDSheetController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GDSheetController.m; sourceTree = "<group>"; };
+		81D84D4517C65FB1003B4272 /* GDSheetView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GDSheetView.h; sourceTree = "<group>"; };
+		81D84D4617C65FB1003B4272 /* GDSheetView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GDSheetView.m; sourceTree = "<group>"; };
+		81D84D4D17C65FEC003B4272 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		81D84D4E17C65FEC003B4272 /* GDAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GDAppDelegate.h; sourceTree = "<group>"; };
+		81D84D4F17C65FEC003B4272 /* GDAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GDAppDelegate.m; sourceTree = "<group>"; };
+		81D84D5217C65FEC003B4272 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		81D84D5317C65FEC003B4272 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		81D84D5B17C65FF6003B4272 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		81D84D5D17C65FF6003B4272 /* GDSheetViewControllerDemoTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GDSheetViewControllerDemoTests.m; sourceTree = "<group>"; };
+		81D84D6317C672AD003B4272 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		81D84D7017C7AD35003B4272 /* GDMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GDMainViewController.h; sourceTree = "<group>"; };
+		81D84D7117C7AD35003B4272 /* GDMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GDMainViewController.m; sourceTree = "<group>"; };
+		81D84D7217C7AD35003B4272 /* GDMainViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GDMainViewController.xib; sourceTree = "<group>"; };
+		81D84D7617C7ADCD003B4272 /* GDFirstViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GDFirstViewController.h; sourceTree = "<group>"; };
+		81D84D7717C7ADCD003B4272 /* GDFirstViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GDFirstViewController.m; sourceTree = "<group>"; };
+		81D84D7917C7ADFA003B4272 /* GDSecondViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GDSecondViewController.h; sourceTree = "<group>"; };
+		81D84D7A17C7ADFA003B4272 /* GDSecondViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GDSecondViewController.m; sourceTree = "<group>"; };
+		81D84D7C17C7AE0E003B4272 /* GDThirdViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GDThirdViewController.h; sourceTree = "<group>"; };
+		81D84D7D17C7AE0E003B4272 /* GDThirdViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GDThirdViewController.m; sourceTree = "<group>"; };
+		81D84D8017C7AF09003B4272 /* GDSheetControllerDemo-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GDSheetControllerDemo-Info.plist"; sourceTree = "<group>"; };
+		81D84D8117C7AF09003B4272 /* GDSheetControllerDemo-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "GDSheetControllerDemo-Prefix.pch"; sourceTree = "<group>"; };
+		81D84D8317C7AF47003B4272 /* GDSheetControllerDemoTests-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GDSheetControllerDemoTests-Info.plist"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		81D84D0417C659B8003B4272 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				81D84D6417C672AD003B4272 /* QuartzCore.framework in Frameworks */,
+				81D84D0D17C659B9003B4272 /* CoreGraphics.framework in Frameworks */,
+				81D84D0F17C659B9003B4272 /* UIKit.framework in Frameworks */,
+				81D84D0B17C659B9003B4272 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		81D84D1F17C659B9003B4272 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				81D84D2417C659B9003B4272 /* XCTest.framework in Frameworks */,
+				81D84D2617C659B9003B4272 /* UIKit.framework in Frameworks */,
+				81D84D2517C659B9003B4272 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		8176AA0617CBA41D004E6001 /* Ressources */ = {
+			isa = PBXGroup;
+			children = (
+				8176AA0717CBA437004E6001 /* Default-568h@2x.png */,
+				8176AA0817CBA437004E6001 /* Default@2x.png */,
+			);
+			name = Ressources;
+			sourceTree = "<group>";
+		};
+		81D84CFE17C659B8003B4272 = {
+			isa = PBXGroup;
+			children = (
+				81D84D4217C65FB1003B4272 /* GDSheetController */,
+				81D84D4B17C65FEC003B4272 /* GDSheetControllerDemo */,
+				81D84D5917C65FF6003B4272 /* GDSheetControllerDemoTests */,
+				81D84D0917C659B8003B4272 /* Frameworks */,
+				81D84D0817C659B8003B4272 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		81D84D0817C659B8003B4272 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				81D84D0717C659B8003B4272 /* GDSheetViewControllerDemo.app */,
+				81D84D2217C659B9003B4272 /* GDSheetViewControllerDemoTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		81D84D0917C659B8003B4272 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				81D84D6317C672AD003B4272 /* QuartzCore.framework */,
+				81D84D0A17C659B9003B4272 /* Foundation.framework */,
+				81D84D0C17C659B9003B4272 /* CoreGraphics.framework */,
+				81D84D0E17C659B9003B4272 /* UIKit.framework */,
+				81D84D2317C659B9003B4272 /* XCTest.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		81D84D4217C65FB1003B4272 /* GDSheetController */ = {
+			isa = PBXGroup;
+			children = (
+				81D84D4317C65FB1003B4272 /* GDSheetController.h */,
+				81D84D4417C65FB1003B4272 /* GDSheetController.m */,
+				81D84D4517C65FB1003B4272 /* GDSheetView.h */,
+				81D84D4617C65FB1003B4272 /* GDSheetView.m */,
+				81274AFD17CCB71C009D0A06 /* UIViewController+GDSheetController.h */,
+				81274AFE17CCB71C009D0A06 /* UIViewController+GDSheetController.m */,
+			);
+			name = GDSheetController;
+			path = ../GDSheetController;
+			sourceTree = "<group>";
+		};
+		81D84D4B17C65FEC003B4272 /* GDSheetControllerDemo */ = {
+			isa = PBXGroup;
+			children = (
+				81D84D6517C7AC8B003B4272 /* ViewControllers */,
+				81D84D4E17C65FEC003B4272 /* GDAppDelegate.h */,
+				81D84D4F17C65FEC003B4272 /* GDAppDelegate.m */,
+				81D84D5217C65FEC003B4272 /* Images.xcassets */,
+				8176AA0617CBA41D004E6001 /* Ressources */,
+				81D84D6117C65FFF003B4272 /* SupportingFiles */,
+			);
+			path = GDSheetControllerDemo;
+			sourceTree = "<group>";
+		};
+		81D84D5917C65FF6003B4272 /* GDSheetControllerDemoTests */ = {
+			isa = PBXGroup;
+			children = (
+				81D84D5D17C65FF6003B4272 /* GDSheetViewControllerDemoTests.m */,
+				81D84D6217C6601A003B4272 /* SupportingFiles */,
+			);
+			path = GDSheetControllerDemoTests;
+			sourceTree = "<group>";
+		};
+		81D84D6117C65FFF003B4272 /* SupportingFiles */ = {
+			isa = PBXGroup;
+			children = (
+				81D84D4C17C65FEC003B4272 /* InfoPlist.strings */,
+				81D84D8017C7AF09003B4272 /* GDSheetControllerDemo-Info.plist */,
+				81D84D8117C7AF09003B4272 /* GDSheetControllerDemo-Prefix.pch */,
+				81D84D5317C65FEC003B4272 /* main.m */,
+			);
+			name = SupportingFiles;
+			sourceTree = "<group>";
+		};
+		81D84D6217C6601A003B4272 /* SupportingFiles */ = {
+			isa = PBXGroup;
+			children = (
+				81D84D5A17C65FF6003B4272 /* InfoPlist.strings */,
+				81D84D8317C7AF47003B4272 /* GDSheetControllerDemoTests-Info.plist */,
+			);
+			name = SupportingFiles;
+			sourceTree = "<group>";
+		};
+		81D84D6517C7AC8B003B4272 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				81D84D7517C7AD39003B4272 /* Main */,
+			);
+			name = ViewControllers;
+			sourceTree = "<group>";
+		};
+		81D84D7517C7AD39003B4272 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				81D84D7017C7AD35003B4272 /* GDMainViewController.h */,
+				81D84D7117C7AD35003B4272 /* GDMainViewController.m */,
+				81D84D7217C7AD35003B4272 /* GDMainViewController.xib */,
+				81D84D7617C7ADCD003B4272 /* GDFirstViewController.h */,
+				81D84D7717C7ADCD003B4272 /* GDFirstViewController.m */,
+				81D84D7917C7ADFA003B4272 /* GDSecondViewController.h */,
+				81D84D7A17C7ADFA003B4272 /* GDSecondViewController.m */,
+				81D84D7C17C7AE0E003B4272 /* GDThirdViewController.h */,
+				81D84D7D17C7AE0E003B4272 /* GDThirdViewController.m */,
+				8176AA0B17CBA5A1004E6001 /* GDFourthViewController.h */,
+				8176AA0C17CBA5A1004E6001 /* GDFourthViewController.m */,
+			);
+			name = Main;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		81D84D0617C659B8003B4272 /* GDSheetViewControllerDemo */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 81D84D3317C659B9003B4272 /* Build configuration list for PBXNativeTarget "GDSheetViewControllerDemo" */;
+			buildPhases = (
+				81D84D0317C659B8003B4272 /* Sources */,
+				81D84D0417C659B8003B4272 /* Frameworks */,
+				81D84D0517C659B8003B4272 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = GDSheetViewControllerDemo;
+			productName = GDSheetViewControllerDemo;
+			productReference = 81D84D0717C659B8003B4272 /* GDSheetViewControllerDemo.app */;
+			productType = "com.apple.product-type.application";
+		};
+		81D84D2117C659B9003B4272 /* GDSheetViewControllerDemoTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 81D84D3617C659B9003B4272 /* Build configuration list for PBXNativeTarget "GDSheetViewControllerDemoTests" */;
+			buildPhases = (
+				81D84D1E17C659B9003B4272 /* Sources */,
+				81D84D1F17C659B9003B4272 /* Frameworks */,
+				81D84D2017C659B9003B4272 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				81D84D2817C659B9003B4272 /* PBXTargetDependency */,
+			);
+			name = GDSheetViewControllerDemoTests;
+			productName = GDSheetViewControllerDemoTests;
+			productReference = 81D84D2217C659B9003B4272 /* GDSheetViewControllerDemoTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		81D84CFF17C659B8003B4272 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = GD;
+				LastUpgradeCheck = 0500;
+				ORGANIZATIONNAME = "David Bonnet";
+				TargetAttributes = {
+					81D84D0617C659B8003B4272 = {
+						DevelopmentTeam = 8549MP44S8;
+					};
+					81D84D2117C659B9003B4272 = {
+						TestTargetID = 81D84D0617C659B8003B4272;
+					};
+				};
+			};
+			buildConfigurationList = 81D84D0217C659B8003B4272 /* Build configuration list for PBXProject "GDSheetViewControllerDemo" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 81D84CFE17C659B8003B4272;
+			productRefGroup = 81D84D0817C659B8003B4272 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				81D84D0617C659B8003B4272 /* GDSheetViewControllerDemo */,
+				81D84D2117C659B9003B4272 /* GDSheetViewControllerDemoTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		81D84D0517C659B8003B4272 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8176AA0A17CBA437004E6001 /* Default@2x.png in Resources */,
+				81D84D8217C7AF09003B4272 /* GDSheetControllerDemo-Info.plist in Resources */,
+				81D84D7417C7AD35003B4272 /* GDMainViewController.xib in Resources */,
+				81D84D5717C65FEC003B4272 /* Images.xcassets in Resources */,
+				8176AA0917CBA437004E6001 /* Default-568h@2x.png in Resources */,
+				81D84D5417C65FEC003B4272 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		81D84D2017C659B9003B4272 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				81D84D8417C7AF47003B4272 /* GDSheetControllerDemoTests-Info.plist in Resources */,
+				81D84D5E17C65FF6003B4272 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		81D84D0317C659B8003B4272 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8176AA0D17CBA5A1004E6001 /* GDFourthViewController.m in Sources */,
+				81D84D4717C65FB1003B4272 /* GDSheetController.m in Sources */,
+				81D84D4917C65FB1003B4272 /* GDSheetView.m in Sources */,
+				81274AFF17CCB71C009D0A06 /* UIViewController+GDSheetController.m in Sources */,
+				81D84D5817C65FEC003B4272 /* main.m in Sources */,
+				81D84D5517C65FEC003B4272 /* GDAppDelegate.m in Sources */,
+				81D84D7B17C7ADFA003B4272 /* GDSecondViewController.m in Sources */,
+				81D84D7817C7ADCD003B4272 /* GDFirstViewController.m in Sources */,
+				81D84D7317C7AD35003B4272 /* GDMainViewController.m in Sources */,
+				81D84D7E17C7AE0E003B4272 /* GDThirdViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		81D84D1E17C659B9003B4272 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				81D84D4817C65FB1003B4272 /* GDSheetController.m in Sources */,
+				81D84D4A17C65FB1003B4272 /* GDSheetView.m in Sources */,
+				81D84D6017C65FF6003B4272 /* GDSheetViewControllerDemoTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		81D84D2817C659B9003B4272 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 81D84D0617C659B8003B4272 /* GDSheetViewControllerDemo */;
+			targetProxy = 81D84D2717C659B9003B4272 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		81D84D4C17C65FEC003B4272 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				81D84D4D17C65FEC003B4272 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		81D84D5A17C65FF6003B4272 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				81D84D5B17C65FF6003B4272 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		81D84D3117C659B9003B4272 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		81D84D3217C659B9003B4272 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		81D84D3417C659B9003B4272 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "GDSheetControllerDemo/GDSheetControllerDemo-Prefix.pch";
+				INFOPLIST_FILE = "GDSheetControllerDemo/GDSheetControllerDemo-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		81D84D3517C659B9003B4272 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "GDSheetControllerDemo/GDSheetControllerDemo-Prefix.pch";
+				INFOPLIST_FILE = "GDSheetControllerDemo/GDSheetControllerDemo-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		81D84D3717C659B9003B4272 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/GDSheetViewControllerDemo.app/GDSheetViewControllerDemo";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "GDSheetControllerDemo/GDSheetControllerDemo-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "GDSheetControllerDemoTests/GDSheetControllerDemoTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		81D84D3817C659B9003B4272 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/GDSheetViewControllerDemo.app/GDSheetViewControllerDemo";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "GDSheetControllerDemo/GDSheetControllerDemo-Prefix.pch";
+				INFOPLIST_FILE = "GDSheetControllerDemoTests/GDSheetControllerDemoTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		81D84D0217C659B8003B4272 /* Build configuration list for PBXProject "GDSheetViewControllerDemo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				81D84D3117C659B9003B4272 /* Debug */,
+				81D84D3217C659B9003B4272 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		81D84D3317C659B9003B4272 /* Build configuration list for PBXNativeTarget "GDSheetViewControllerDemo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				81D84D3417C659B9003B4272 /* Debug */,
+				81D84D3517C659B9003B4272 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		81D84D3617C659B9003B4272 /* Build configuration list for PBXNativeTarget "GDSheetViewControllerDemoTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				81D84D3717C659B9003B4272 /* Debug */,
+				81D84D3817C659B9003B4272 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 81D84CFF17C659B8003B4272 /* Project object */;
+}
