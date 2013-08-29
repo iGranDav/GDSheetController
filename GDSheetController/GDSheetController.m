@@ -178,6 +178,9 @@ NSString * const GDSheetControllerSheetShadowOpacityKey                         
     self = [super init];
     if(self)
     {
+        //Set view controller frame correctly
+        self.view.frame = self.view.bounds;
+        
         if(options)
         {
             self.controllerOptions = [options mutableCopy];
@@ -185,16 +188,6 @@ NSString * const GDSheetControllerSheetShadowOpacityKey                         
         
         [self commonInitGDSheetController];
         [self addControllerSheets:arrayOfControllers];
-    }
-    return self;
-}
-
--(id)initWithNibName:(NSString*)nibNameOrNil bundle:(NSBundle*)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self)
-    {
-        [self commonInitGDSheetController];
     }
     return self;
 }
