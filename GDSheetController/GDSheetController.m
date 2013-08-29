@@ -807,7 +807,7 @@ NSString * const GDSheetControllerSheetShadowOpacityKey                         
         for(GDSheetView *aSheet in [self sheetsBelowSheet:sheet])
         {
             CGFloat deltaDistance   = sheet.top - sheet.defaultTopInSuperview;
-            CGFloat top             = aSheet.top + deltaDistance;
+            CGFloat top             = aSheet.defaultTopInSuperview + deltaDistance;
             aSheet.top = top;
         }
     }
