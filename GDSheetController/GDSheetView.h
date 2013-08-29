@@ -56,6 +56,7 @@
 
 @optional
 //Called on any time a state change has occured - even if a state has changed to itself - (i.e. from GDSheetState_Default to GDSheetState_Default)
+- (void)sheet:(GDSheetView *)sheet willChangeToDisplayState:(GDSheetState)toState fromDisplayState:(GDSheetState)fromState;
 - (void)sheet:(GDSheetView *)sheet didChangeToDisplayState:(GDSheetState)toState fromDisplayState:(GDSheetState)fromState;
 
 @end

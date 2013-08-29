@@ -216,6 +216,21 @@ extern NSString * const GDSheetControllerSheetShadowOpacityKey;
 
 @end
 
+@protocol GDSheetControllerDelegate <NSObject>
+@optional
+
+- (void)sheetController:(GDSheetController *)controller
+willChangeEmbeddedController:(UIViewController*)embeddedController
+         toDisplayState:(GDSheetState)toState
+       fromDisplayState:(GDSheetState)fromState;
+
+- (void)sheetController:(GDSheetController *)controller
+didChangeEmbeddedController:(UIViewController*)embeddedController
+         toDisplayState:(GDSheetState)toState
+       fromDisplayState:(GDSheetState)fromState;
+
+@end
+
 ////////////////////////////////////////////////////////////////////////////////
 #pragma mark - Interface
 
@@ -224,29 +239,31 @@ extern NSString * const GDSheetControllerSheetShadowOpacityKey;
 ////////////////////////////////////////////////////////////////////////////////
 #pragma mark - Properties
 
-@property (nonatomic, strong, readonly) NSDictionary            *options;
+@property (nonatomic, strong, readonly) NSDictionary                        *options;
 
-@property (nonatomic, assign, readonly) CGFloat                 sheetsStartFromTop;
-@property (nonatomic, assign, readonly) CGFloat                 maxDistanceBetweenSheets;
-@property (nonatomic, assign, readonly) CGFloat                 sheetMinScaleFactor;
-@property (nonatomic, assign, readonly) CGFloat                 sheetFullscreenScaleFactor;
+@property (nonatomic, assign, readonly) CGFloat                             sheetsStartFromTop;
+@property (nonatomic, assign, readonly) CGFloat                             maxDistanceBetweenSheets;
+@property (nonatomic, assign, readonly) CGFloat                             sheetMinScaleFactor;
+@property (nonatomic, assign, readonly) CGFloat                             sheetFullscreenScaleFactor;
 
-@property (nonatomic, assign, readonly) CGFloat                 sheetCornerRadius;
+@property (nonatomic, assign, readonly) CGFloat                             sheetCornerRadius;
 
-@property (nonatomic, assign, readonly) GDSheetGestureScope     sheetGestureScope;
-@property (nonatomic, assign, readonly) BOOL                    sheetEnableTapGesture;
-@property (nonatomic, assign, readonly) NSUInteger              sheetNumberOfTapRequired;
+@property (nonatomic, assign, readonly) GDSheetGestureScope                 sheetGestureScope;
+@property (nonatomic, assign, readonly) BOOL                                sheetEnableTapGesture;
+@property (nonatomic, assign, readonly) NSUInteger                          sheetNumberOfTapRequired;
 
-@property (nonatomic, assign, readonly) CGFloat                 sheetFullScreenDistanceThreshold;
-@property (nonatomic, assign, readonly) BOOL                    sheetUserInteractionEnabledInDefaultState;
+@property (nonatomic, assign, readonly) CGFloat                             sheetFullScreenDistanceThreshold;
+@property (nonatomic, assign, readonly) BOOL                                sheetUserInteractionEnabledInDefaultState;
 
-@property (nonatomic, assign, readonly) CGFloat                 sheetAnimationsDuration;
+@property (nonatomic, assign, readonly) CGFloat                             sheetAnimationsDuration;
 
-@property (nonatomic, assign, readonly) BOOL                    sheetShadowEnabled;
-@property (nonatomic, assign, readonly) UIColor                 *sheetShadowColor;
-@property (nonatomic, assign, readonly) CGSize                  sheetShadowOffset;
-@property (nonatomic, assign, readonly) CGFloat                 sheetShadowRadius;
-@property (nonatomic, assign, readonly) CGFloat                 sheetShadowOpacity;
+@property (nonatomic, assign, readonly) BOOL                                sheetShadowEnabled;
+@property (nonatomic, assign, readonly) UIColor                             *sheetShadowColor;
+@property (nonatomic, assign, readonly) CGSize                              sheetShadowOffset;
+@property (nonatomic, assign, readonly) CGFloat                             sheetShadowRadius;
+@property (nonatomic, assign, readonly) CGFloat                             sheetShadowOpacity;
+
+@property (nonatomic, weak)             id<GDSheetControllerDelegate>       delegate;
 
 ////////////////////////////////////////////////////////////////////////////////
 #pragma mark - Class Methods

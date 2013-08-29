@@ -831,25 +831,43 @@ NSString * const GDSheetControllerSheetShadowOpacityKey                         
     }
 }
 
+- (void)sheet:(GDSheetView *)sheet willChangeToDisplayState:(GDSheetState)toState fromDisplayState:(GDSheetState)fromState
+{
+    if([self.delegate respondsToSelector:@selector(sheetController:willChangeEmbeddedController:toDisplayState:fromDisplayState:)])
+    {
+        [self.delegate sheetController:self willChangeEmbeddedController:sheet.embeddedViewController toDisplayState:toState fromDisplayState:fromState];
+    }
+}
+
 - (void)sheet:(GDSheetView *)sheet didChangeToDisplayState:(GDSheetState)toState fromDisplayState:(GDSheetState)fromState
 {
+    __typeof__(self) __weak weakSelf = self;
+    
+    GDDefaultCompletionHandler completion = ^(BOOL finished){
+    
+        if([weakSelf.delegate respondsToSelector:@selector(sheetController:didChangeEmbeddedController:toDisplayState:fromDisplayState:)])
+        {
+            [weakSelf.delegate sheetController:weakSelf didChangeEmbeddedController:sheet.embeddedViewController toDisplayState:toState fromDisplayState:fromState];
+        }
+    };
+    
     if((fromState == GDSheetState_Default) && (toState == GDSheetState_Fullscreen))
     {
         for(GDSheetView *aSheet in [self sheetsAboveSheet:sheet])
-            [aSheet setState:GDSheetState_HiddenTop animated:YES completion:NULL];
+            [aSheet setState:GDSheetState_HiddenTop animated:YES completion:completion];
         
         for(GDSheetView *aSheet in [self sheetsBelowSheet:sheet])
-            [aSheet setState:GDSheetState_HiddenBottom animated:YES completion:NULL];
+            [aSheet setState:GDSheetState_HiddenBottom animated:YES completion:completion];
         
         self.controllerState = GDSheetState_Fullscreen;
     }
     else if((fromState == GDSheetState_Fullscreen) && (toState == GDSheetState_Default))
     {
         for(GDSheetView *aSheet in [self sheetsAboveSheet:sheet])
-            [aSheet setState:GDSheetState_Default animated:YES completion:NULL];
+            [aSheet setState:GDSheetState_Default animated:YES completion:completion];
         
         for(GDSheetView *aSheet in [self sheetsBelowSheet:sheet])
-            [aSheet setState:GDSheetState_Default animated:YES completion:NULL];
+            [aSheet setState:GDSheetState_Default animated:YES completion:completion];
         
         self.controllerState = GDSheetState_Default;
     }
@@ -857,7 +875,7 @@ NSString * const GDSheetControllerSheetShadowOpacityKey                         
     {
         for(GDSheetView *aSheet in [self sheetsBelowSheet:sheet])
             
-            [aSheet setState:GDSheetState_Default animated:YES completion:NULL];
+            [aSheet setState:GDSheetState_Default animated:YES completion:completion];
     }
 }
 

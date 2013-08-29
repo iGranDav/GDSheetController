@@ -377,7 +377,13 @@
 - (void)setState:(GDSheetState)state animated:(BOOL)animated fromUser:(BOOL)fromUser completion:(GDDefaultCompletionHandler)completion
 {
     GDSheetState previousState = self.state;
-    if(fromUser) [self notifyStateWillChangedToState:state];
+    if(fromUser){
+        [self notifyStateWillChangedToState:state];
+        
+        if ([self.delegate respondsToSelector:@selector(sheet:didChangeToDisplayState:fromDisplayState:)]) {
+            [self.delegate sheet:self willChangeToDisplayState:state fromDisplayState:previousState];
+        }
+    }
     
     if (animated) {
         [UIView animateWithDuration:self.sheetAnimationsDuration
