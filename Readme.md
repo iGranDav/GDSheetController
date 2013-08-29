@@ -13,7 +13,14 @@ Installation
 Installation may be as simple as using it ;-)
 
 ###Cocoapods
-Coming soon... (Very soon)
+If you are using **CocoaPods**
+
+1. Simply add ``pod 'GDSheetController', '~> 0.1.0'`` to your podfile
+2. And then run 
+ - ``pod update`` if you already have a project with pods
+ - ``pod install`` to integrate your pods to your project
+
+To know more about CocoaPods and usage, visit their [website](http://cocoapods.org).
 
 ###Manual install
 1. Download the **ZIP** from *Github* and copy the **GDSheetController** directory to your project
