@@ -68,7 +68,31 @@ NSDictionary *options       = @{GDSheetControllerSheetGestureScopeKey:@(GDSheetG
 
 Screens
 -------
-You can customize spaces between sheets but ``GDSheetController`` automatically adapts its layout for displaying all your sheets on screen. That is why you define a maximum space between your sheets.
+
+###Distance between sheets
+You can customize spaces between sheets but ``GDSheetController`` automatically adapts its layout for displaying **all** your sheets on screen. That is why you define a maximum space between your sheets using ``GDSheetControllerMaxDistanceBetweenSheetsKey``.
+
+```objc
+/**
+ * Determines the max distance between sheets to show embedded controller
+ * content when sheets are closed
+ *
+ * @default 70.f
+ * @value NSNumber containing CGFloat
+ */
+extern NSString * const GDSheetControllerMaxDistanceBetweenSheetsKey;
+```
+###Managing fullscreen when using as a child ViewController
+When GDSheetController is embedded in a ``UINavigationController`` or if your are using it as a custom child ``UIViewController`` you can experience some issues with Fullscreen sheets. That is why ``GDSheetController`` propose a fullscreen mode via the ``GDSheetControllerSheetFullscreenModeKey`` option.
+
+You can choose:
+
+- **GDSheetFullscreenMode_Controller**
+ - Sheet go fullscreen inside the sheet controller only! (*by default*)
+- **GDSheetFullscreenMode_Screen**
+ - Sheet go fullscreen on the whole screen (*following current keyWindow*) and go outside the sheet controller
+
+Then your controllers will pass above the existing ``UINavigationBar`` of the ``UINavigationController`` embedding your ``GDSheetController``.
 
 Known Issues
 ------------
@@ -76,8 +100,12 @@ Known Issues
 - Handling orientation changes correctly
  - Still having an issue when moving from landscape right to landscape left.
  - Fullscreen controllers won't go landscape
+- When using ``GDSheetFullscreenMode_Screen`` back to default animation does **NOT** run smoothly.
 - Make an iPad demo
-- If you find any other bugs, please open a new issue.
+
+If you find any other bugs, please open a new issue.
+
+You want a new feature ? Please open a new issue too or fork me and propose your pull request.
 
 Thanks to
 ---------
