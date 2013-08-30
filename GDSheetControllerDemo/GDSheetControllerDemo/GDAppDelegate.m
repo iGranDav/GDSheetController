@@ -62,6 +62,15 @@
     self.window.rootViewController = nav;
     [self.window makeKeyAndVisible];
     
+    if([vc respondsToSelector:@selector(preferredStatusBarStyle)])
+    {
+        CGRect sheetControllerFrame = self.sheetController.view.frame;
+        sheetControllerFrame.origin.y = [nav.navigationBar frame].size.height;
+        sheetControllerFrame.size.height -= [nav.navigationBar frame].size.height;
+        
+        self.sheetController.view.frame = sheetControllerFrame;
+    }
+
     [vc addChildViewController:self.sheetController];
     [vc.view addSubview:self.sheetController.view];
     [self.sheetController didMoveToParentViewController:vc];

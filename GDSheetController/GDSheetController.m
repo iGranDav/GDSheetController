@@ -771,12 +771,17 @@ NSString * const GDSheetControllerSheetShadowOpacityKey                         
     if(self.sheetFullscreenMode == GDSheetFullscreenMode_Controller) return;
     NSAssert([self isOnWindow], @"Should be on window to expand to window size. This avoid touch issues");
     
-    CGRect statusBarFrame = [[UIApplication sharedApplication] statusBarFrame];
-    
     UIWindow *window = [[UIApplication sharedApplication] keyWindow];
     CGRect frameOnWindow = window.bounds;
-    frameOnWindow.origin.y = statusBarFrame.size.height;
-    frameOnWindow.size.height -= statusBarFrame.size.height;
+
+    if(![self respondsToSelector:@selector(preferredStatusBarStyle)])
+    {
+        CGRect statusBarFrame = [[UIApplication sharedApplication] statusBarFrame];
+    
+        frameOnWindow.origin.y = statusBarFrame.size.height;
+        frameOnWindow.size.height -= statusBarFrame.size.height;
+    }
+
     self.view.frame = frameOnWindow;
 }
 
