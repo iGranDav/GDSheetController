@@ -139,7 +139,7 @@ extern NSString * const GDSheetControllerSheetNumberOfTapRequiredKey;
  * @default 44.f
  * @value NSNumber containing CGFloat
  */
-extern NSString * const GDSheetControllerSheetFullScreenDistanceThresholdKey;
+extern NSString * const GDSheetControllerSheetFullscreenDistanceThresholdKey;
 
 /**
  * Determines if the user can interract with sheet content when sheet is in default state

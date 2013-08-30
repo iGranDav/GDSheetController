@@ -80,10 +80,11 @@ NSString * const GDSheetControllerSheetFullscreenScalingFactorKey               
 NSString * const GDSheetControllerSheetCornerRadiusKey                          = @"GDSheetControllerSheetCornerRadiusKey";
 
 NSString * const GDSheetControllerSheetGestureScopeKey                          = @"GDSheetControllerSheetGestureScopeKey";
+NSString * const GDSheetControllerSheetFullscreenModeKey                        = @"GDSheetControllerSheetFullscreenModeKey";
 NSString * const GDSheetControllerSheetEnableTapGestureKey                      = @"GDSheetControllerSheetEnableTapGestureKey";
 NSString * const GDSheetControllerSheetNumberOfTapRequiredKey                   = @"GDSheetControllerSheetNumberOfTapRequiredKey";
 
-NSString * const GDSheetControllerSheetFullScreenDistanceThresholdKey           = @"GDSheetControllerSheetFullScreenDistanceThresholdKey";
+NSString * const GDSheetControllerSheetFullscreenDistanceThresholdKey           = @"GDSheetControllerSheetFullscreenDistanceThresholdKey";
 NSString * const GDSheetControllerSheetAllowUserInteractionInDefaultStateKey    = @"GDSheetControllerSheetAllowUserInteractionInDefaultStateKey";
 
 NSString * const GDSheetControllerSheetAnimationsDurationKey                    = @"GDSheetControllerSheetAnimationsDurationKey";
@@ -458,7 +459,7 @@ NSString * const GDSheetControllerSheetShadowOpacityKey                         
 
 - (CGFloat)sheetFullScreenDistanceThreshold
 {
-    NSNumber *num = self.controllerOptions[GDSheetControllerSheetFullScreenDistanceThresholdKey];
+    NSNumber *num = self.controllerOptions[GDSheetControllerSheetFullscreenDistanceThresholdKey];
     
     if(!num)
     {
@@ -473,7 +474,7 @@ NSString * const GDSheetControllerSheetShadowOpacityKey                         
 
 - (void)setSheetFullScreenDistanceThreshold:(CGFloat)sheetFullScreenDistanceThreshold
 {
-    self.controllerOptions[GDSheetControllerSheetFullScreenDistanceThresholdKey] = @(sheetFullScreenDistanceThreshold);
+    self.controllerOptions[GDSheetControllerSheetFullscreenDistanceThresholdKey] = @(sheetFullScreenDistanceThreshold);
 }
 
 #pragma mark -
