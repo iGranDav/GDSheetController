@@ -369,12 +369,12 @@
     [self setState:state animated:YES completion:NULL];
 }
 
-- (void)setState:(GDSheetState)state animated:(BOOL)animated completion:(GDDefaultCompletionHandler)completion
+- (void)setState:(GDSheetState)state animated:(BOOL)animated completion:(GDSheetCompletionHandler)completion
 {
     [self setState:state animated:animated fromUser:YES completion:completion];
 }
 
-- (void)setState:(GDSheetState)state animated:(BOOL)animated fromUser:(BOOL)fromUser completion:(GDDefaultCompletionHandler)completion
+- (void)setState:(GDSheetState)state animated:(BOOL)animated fromUser:(BOOL)fromUser completion:(GDSheetCompletionHandler)completion
 {
     GDSheetState previousState = self.state;
     if(fromUser){
@@ -410,7 +410,7 @@
                              if(fromUser)
                              {
                                  [self notifyStateDidChangedFromPreviousState:previousState];
-                                 if(completion) completion(finished);
+                                 if(completion) completion(self, previousState, finished);
                              }
                          }];
         return;
@@ -477,7 +477,7 @@
     if(fromUser)
     {
         [self notifyStateDidChangedFromPreviousState:previousState];
-        if(completion) completion(YES);
+        if(completion) completion(self, previousState, YES);
     }
     
     //Notify the delegate of the state change (even if state changed to self)
@@ -528,7 +528,7 @@
  *	@param	animated	Animate changes
  *  @param  completion  Called after state change and animation block completion
  */
-- (void)toggleStateAnimated:(BOOL)animated completion:(GDDefaultCompletionHandler)completion
+- (void)toggleStateAnimated:(BOOL)animated completion:(GDSheetCompletionHandler)completion
 {
     GDSheetState nextState = self.state == GDSheetState_Default ? GDSheetState_Fullscreen : GDSheetState_Default;
     [self setState:nextState animated:animated completion:completion];

@@ -43,6 +43,8 @@
 ////////////////////////////////////////////////////////////////////////////////
 #pragma mark - Defines & Constants
 
+typedef void(^GDSheetCompletionHandler)(GDSheetView *sheet, GDSheetState previousState, BOOL finished);
+
 ////////////////////////////////////////////////////////////////////////////////
 #pragma mark - Protocols
 
@@ -95,7 +97,7 @@
 
 - (void)setState:(GDSheetState)state
         animated:(BOOL)animated
-      completion:(GDDefaultCompletionHandler)completion;
+      completion:(GDSheetCompletionHandler)completion;
 
 - (CGFloat)top;
 - (void)setTop:(CGFloat)y;
