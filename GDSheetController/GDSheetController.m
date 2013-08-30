@@ -977,6 +977,7 @@ NSString * const GDSheetControllerSheetShadowOpacityKey                         
             
             [aSheet setState:GDSheetState_Default animated:YES completion:completion];
         
+        self.controllerState = GDSheetState_Default;
         completion(sheet, fromState, YES);
     }
 }
