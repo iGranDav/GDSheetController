@@ -59,7 +59,7 @@
 
 - (void)embeddedControllerWillChangeToDisplayState:(GDSheetState)toState fromDisplayState:(GDSheetState)fromState
 {
-    NSLog(@"[%@] Will change from %i to %i", NSStringFromClass([self class]), fromState, toState);
+    NSLog(@"    [%@] Will change from %i to %i", NSStringFromClass([self class]), fromState, toState);
     
     if(toState == GDSheetState_Default)
     {
@@ -69,7 +69,7 @@
 
 - (void)embeddedControllerDidChangeToDisplayState:(GDSheetState)toState fromDisplayState:(GDSheetState)fromState
 {
-    NSLog(@"[%@] Did change from %i to %i", NSStringFromClass([self class]), fromState, toState);
+    NSLog(@"    [%@] Did change from %i to %i", NSStringFromClass([self class]), fromState, toState);
     
     if(toState == GDSheetState_Fullscreen)
     {
