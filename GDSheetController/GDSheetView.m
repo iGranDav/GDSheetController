@@ -63,6 +63,7 @@
 @property (nonatomic, assign) CGFloat                   sheetCornerRadius;
 
 @property (nonatomic, assign) GDSheetGestureScope       sheetGestureScope;
+@property (nonatomic, assign) GDSheetFullscreenMode     sheetFullscreenMode;
 @property (nonatomic, assign) BOOL                      sheetEnableTapGesture;
 @property (nonatomic, assign) NSUInteger                sheetNumberOfTapRequired;
 
@@ -145,6 +146,7 @@
     self.sheetFullscreenScaleFactor                 = [sheetController sheetFullscreenScaleFactor];
     self.sheetCornerRadius                          = [sheetController sheetCornerRadius];
     self.sheetGestureScope                          = [sheetController sheetGestureScope];
+    self.sheetFullscreenMode                        = [sheetController sheetFullscreenMode];
     self.sheetEnableTapGesture                      = [sheetController sheetEnableTapGesture];
     self.sheetNumberOfTapRequired                   = [sheetController sheetNumberOfTapRequired];
     self.fullScreenDistanceThreshold                = [sheetController sheetFullScreenDistanceThreshold];

@@ -55,6 +55,7 @@
 
 //Gestures
 #define DEFAULT_SHEET_GESTURE_SCOPE                     GDSheetGestureScope_AllButTap
+#define DEFAULT_SHEET_FULLSCREEN_MODE                   GDSheetFullscreenMode_Controller
 #define DEFAULT_SHEET_ENABLE_TAPGESTURE                 YES
 #define DEFAULT_SHEET_NUMBEROFTAP_REQUIRED              2
 
@@ -113,6 +114,7 @@ NSString * const GDSheetControllerSheetShadowOpacityKey                         
 @property (nonatomic, strong) NSMutableDictionary                   *controllerOptions;
 @property (nonatomic, assign) NSUInteger                            numberOfSheets;         //<! Needed during init phase
 @property (nonatomic, assign) GDSheetState                          controllerState;
+@property (nonatomic, assign) CGRect                                savedViewFrame;         //<! Used with GDSheetFullscreenMode_Screen
 
 @property (nonatomic, assign, readwrite) CGFloat                    sheetsStartFromTop;
 @property (nonatomic, assign, readwrite) CGFloat                    maxDistanceBetweenSheets;
@@ -122,6 +124,7 @@ NSString * const GDSheetControllerSheetShadowOpacityKey                         
 @property (nonatomic, assign, readwrite) CGFloat                    sheetCornerRadius;
 
 @property (nonatomic, assign, readwrite) GDSheetGestureScope        sheetGestureScope;
+@property (nonatomic, assign, readwrite) GDSheetFullscreenMode      sheetFullscreenMode;
 @property (nonatomic, assign, readwrite) BOOL                       sheetEnableTapGesture;
 @property (nonatomic, assign, readwrite) NSUInteger                 sheetNumberOfTapRequired;
 
@@ -148,6 +151,9 @@ NSString * const GDSheetControllerSheetShadowOpacityKey                         
 
 -(void)commonInitGDSheetController
 {
+    self.controllerState = GDSheetState_Default;
+    [self addObserver:self forKeyPath:@"controllerState" options:NSKeyValueObservingOptionNew context:nil];
+    
     if(!self.controllerOptions)
     {
         self.controllerOptions = [[NSMutableDictionary alloc] init];
@@ -203,6 +209,11 @@ NSString * const GDSheetControllerSheetShadowOpacityKey                         
     return self;
 }
 
+- (void)dealloc
+{
+    [self removeObserver:self forKeyPath:@"controllerState"];
+}
+
 ////////////////////////////////////////////////////////////////////////////////
 #pragma mark - Superclass Overrides
 
@@ -239,6 +250,16 @@ NSString * const GDSheetControllerSheetShadowOpacityKey                         
     [super didReceiveMemoryWarning];
     
     // Dispose of any resources that can be recreated.
+}
+
+#pragma mark Handling rotation
+
+- (void)willAnimateRotationToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration
+{
+    [super willAnimateRotationToInterfaceOrientation:toInterfaceOrientation duration:duration];
+    
+    //Replace sheets relative to orientation
+    [self relayoutSheets];
 }
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -412,6 +433,28 @@ NSString * const GDSheetControllerSheetShadowOpacityKey                         
 - (void)setSheetGestureScope:(GDSheetGestureScope)sheetGestureScope
 {
     self.controllerOptions[GDSheetControllerSheetGestureScopeKey] = @(sheetGestureScope);
+}
+
+#pragma mark -
+
+- (GDSheetFullscreenMode)sheetFullscreenMode
+{
+    NSNumber *num = self.controllerOptions[GDSheetControllerSheetFullscreenModeKey];
+    
+    if(!num)
+    {
+        self.sheetFullscreenMode = DEFAULT_SHEET_FULLSCREEN_MODE;
+        return [self sheetFullscreenMode];
+    }
+    else
+    {
+        return [num integerValue];
+    }
+}
+
+- (void)setSheetFullscreenMode:(GDSheetFullscreenMode)sheetFullscreenMode
+{
+    self.controllerOptions[GDSheetControllerSheetFullscreenModeKey] = @(sheetFullscreenMode);
 }
 
 #pragma mark -
@@ -637,13 +680,10 @@ NSString * const GDSheetControllerSheetShadowOpacityKey                         
 ////////////////////////////////////////////////////////////////////////////////
 #pragma mark - Private methods
 
-#pragma mark Handlling rotation
+#pragma mark Layout Subviews
 
-- (void)willAnimateRotationToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration
+- (void)relayoutSheets
 {
-    [super willAnimateRotationToInterfaceOrientation:toInterfaceOrientation duration:duration];
-    
-    //Replace sheets relative to orientation
     NSUInteger idx = 0;
     for(GDSheetView *sheet in self.sheetControllers)
     {
@@ -724,6 +764,53 @@ NSString * const GDSheetControllerSheetShadowOpacityKey                         
 {
     //Items should get progressively smaller based on their index in the navigation controller array
     return powf(self.sheetMinScaleFactor, (self.numberOfSheets - indexOfSheet));
+}
+
+- (void)expandToWindowSize
+{
+    if(self.sheetFullscreenMode == GDSheetFullscreenMode_Controller) return;
+    NSAssert([self isOnWindow], @"Should be on window to expand to window size. This avoid touch issues");
+    
+    CGRect statusBarFrame = [[UIApplication sharedApplication] statusBarFrame];
+    
+    UIWindow *window = [[UIApplication sharedApplication] keyWindow];
+    CGRect frameOnWindow = window.bounds;
+    frameOnWindow.origin.y = statusBarFrame.size.height;
+    frameOnWindow.size.height -= statusBarFrame.size.height;
+    self.view.frame = frameOnWindow;
+}
+
+- (void)moveToWindow
+{
+    if(self.sheetFullscreenMode == GDSheetFullscreenMode_Controller) return;
+    if([self isOnWindow]) return;
+    
+    //Move to window to pass thought all elements when swiping
+    UIWindow *window = [[UIApplication sharedApplication] keyWindow];
+    CGRect windowRect = [self.view.superview convertRect:self.view.frame toView:window];
+    
+    self.view.frame = windowRect;
+    [window addSubview:self.view];
+    self.savedViewFrame = windowRect;
+}
+
+- (void)moveToParentController
+{
+    if(self.sheetFullscreenMode == GDSheetFullscreenMode_Controller) return;
+    if(![self isOnWindow]) return;
+    
+    //Move back to view controller by converting position in window to position in controller
+    //savedViewFrame contains its original position in window
+    CGRect superviewRect = [self.view.superview convertRect:self.savedViewFrame toView:self.parentViewController.view];
+    
+    self.view.frame = superviewRect;
+    [self.view removeFromSuperview];
+    [self.parentViewController.view addSubview:self.view];
+}
+
+- (BOOL)isOnWindow
+{
+    return [self.view.superview isKindOfClass:[UIWindow class]];
 }
 
 #pragma mark Sheets getting helpers
@@ -824,6 +911,8 @@ NSString * const GDSheetControllerSheetShadowOpacityKey                         
     {
         aSheet.gesturesEnabled = NO;
     }
+    
+    [self moveToWindow];
 }
 
 - (void)sheet:(GDSheetView *)sheet didEndPanningGesture:(UIPanGestureRecognizer*)gesture
@@ -886,6 +975,27 @@ NSString * const GDSheetControllerSheetShadowOpacityKey                         
         completion(sheet, fromState, YES);
     }
 }
+
+////////////////////////////////////////////////////////////////////////////////
+#pragma mark - KVO
+
+- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
+{
+    if([keyPath isEqualToString:@"controllerState"])
+    {
+        if(self.controllerState == GDSheetState_Default)
+        {
+            [self moveToParentController];
+        }
+        else if(self.controllerState == GDSheetState_Fullscreen)
+        {
+            if(![self isOnWindow]) [self moveToWindow];     //<! In case of using tap gesture to expand
+            [self expandToWindowSize];
+        }
+    }
+    else
+    {
+        [super observeValueForKeyPath:keyPath ofObject:object change:change context:context];
     }
 }
 

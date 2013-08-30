@@ -37,6 +37,12 @@ THE SOFTWARE.
 ////////////////////////////////////////////////////////////////////////////////
 #pragma mark - Types
 
+typedef NS_ENUM(NSUInteger, GDSheetFullscreenMode)
+{
+    GDSheetFullscreenMode_Controller,                   //<! Sheet go fullscreen inside the sheet controller only! (default)
+    GDSheetFullscreenMode_Screen                        //<! Sheet go fullscreen on the whole screen (current keyWindow) and go outside the sheet controller
+};
+
 typedef NS_ENUM(NSUInteger, GDSheetGestureScope)
 {
     GDSheetGestureScope_NavBar,                         //<! Sheet gestures only works from the navigation bar if available
@@ -114,6 +120,14 @@ extern NSString * const GDSheetControllerSheetCornerRadiusKey;
  * @value NSNumber containing a GDSheetGestureScope value
  */
 extern NSString * const GDSheetControllerSheetGestureScopeKey;
+
+/**
+ * Determines the sheets fullscreen mode
+ *
+ * @default GDSheetFullscreenMode_Controller
+ * @value NSNumber containing a GDSheetFullscreenMode value
+ */
+extern NSString * const GDSheetControllerSheetFullscreenModeKey;
 
 /**
  * Determines whether there's a UITapGestureRecognizer placed over the entire
@@ -249,6 +263,7 @@ didChangeEmbeddedController:(UIViewController*)embeddedController
 @property (nonatomic, assign, readonly) CGFloat                             sheetCornerRadius;
 
 @property (nonatomic, assign, readonly) GDSheetGestureScope                 sheetGestureScope;
+@property (nonatomic, assign, readonly) GDSheetFullscreenMode               sheetFullscreenMode;
 @property (nonatomic, assign, readonly) BOOL                                sheetEnableTapGesture;
 @property (nonatomic, assign, readonly) NSUInteger                          sheetNumberOfTapRequired;
 
