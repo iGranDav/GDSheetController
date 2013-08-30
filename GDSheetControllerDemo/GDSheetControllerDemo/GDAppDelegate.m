@@ -14,6 +14,15 @@
 #import "GDThirdViewController.h"
 #import "GDFourthViewController.h"
 
+#define DEMO_MODE_ASROOT        0
+#define DEMO_MODE_EMBEDDED      1
+
+#define DEMO_MODE               DEMO_MODE_ASROOT            //<! Choose your demo mode here
+
+@interface GDAppDelegate () <GDSheetControllerDelegate>
+
+@end
+
 @implementation GDAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
@@ -32,14 +41,61 @@
     UINavigationController *nav3 = [[UINavigationController alloc] initWithRootViewController:tVC];
     UINavigationController *nav4 = [[UINavigationController alloc] initWithRootViewController:qVC];
     
-//    NSDictionary *options = @{GDSheetControllerSheetAllowUserInteractionInDefaultStateKey:@YES};
+#if DEMO_MODE == DEMO_MODE_EMBEDDED
+    
+    /**
+     *  You can add options to your sheetController by using all keys declared in GDSheetController header
+     *  This is optionnal. All default values are used instead
+     */
+    NSDictionary *options = @{GDSheetControllerSheetFullscreenModeKey:@(GDSheetFullscreenMode_Screen)};
+    
+    self.sheetController = [GDSheetController sheetControllerWithControllers:@[nav1, nav2, nav3, nav4]
+                                                                     options:options];
+    self.sheetController.delegate = self;
+    
+    UIViewController *vc = [[UIViewController alloc] init];
+    vc.title = @"Embedded Sheet Test";
+    vc.view.backgroundColor = [UIColor blueColor];
+    
+    UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:vc];
+    
+    self.window.rootViewController = nav;
+    [self.window makeKeyAndVisible];
+    
+    [vc addChildViewController:self.sheetController];
+    [vc.view addSubview:self.sheetController.view];
+    [self.sheetController didMoveToParentViewController:vc];
+    
+#else
     
     self.sheetController = [GDSheetController sheetControllerWithControllers:@[nav1, nav2, nav3, nav4]
                                                                      options:nil];
+    self.sheetController.delegate = self;
     
     self.window.rootViewController = self.sheetController;
     [self.window makeKeyAndVisible];
+    
+#endif
+    
+    
+    
     return YES;
+}
+
+- (void)sheetController:(GDSheetController *)controller
+willChangeEmbeddedController:(UIViewController*)embeddedController
+         toDisplayState:(GDSheetState)toState
+       fromDisplayState:(GDSheetState)fromState
+{
+    NSLog(@"[%@] Embedded %@ will change from %i to %i", NSStringFromClass([controller class]), NSStringFromClass([embeddedController class]), fromState, toState);
+}
+
+- (void)sheetController:(GDSheetController *)controller
+didChangeEmbeddedController:(UIViewController*)embeddedController
+         toDisplayState:(GDSheetState)toState
+       fromDisplayState:(GDSheetState)fromState
+{
+    NSLog(@"[%@] Embedded %@ did change from %i to %i", NSStringFromClass([controller class]), NSStringFromClass([embeddedController class]), fromState, toState);
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application
