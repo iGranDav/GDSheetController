@@ -28,6 +28,10 @@
  THE SOFTWARE.
  */
 
+#if ! __has_feature(objc_arc)
+#error This file is expected to be compiled with ARC turned ON
+#endif
+
 ////////////////////////////////////////////////////////////////////////////////
 #pragma mark - Imports
 
