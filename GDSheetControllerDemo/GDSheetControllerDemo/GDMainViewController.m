@@ -29,6 +29,7 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    self.title = @"a sheet";
     self.cellsTitle = @[@"Test cell", @"Another content", @"Working great!", @"Isn't it?"];
 }
 

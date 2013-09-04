@@ -14,10 +14,13 @@
 #import "GDThirdViewController.h"
 #import "GDFourthViewController.h"
 
+#import "GDAddRemoveSheetViewController.h"
+
 #define DEMO_MODE_ASROOT        0
 #define DEMO_MODE_EMBEDDED      1
+#define DEMO_MODE_DYNAMIC       2
 
-#define DEMO_MODE               DEMO_MODE_ASROOT            //<! Choose your demo mode here
+#define DEMO_MODE               DEMO_MODE_DYNAMIC            //<! Choose your demo mode here
 
 @interface GDAppDelegate () <GDSheetControllerDelegate>
 
@@ -75,6 +78,14 @@
     [vc.view addSubview:self.sheetController.view];
     [self.sheetController didMoveToParentViewController:vc];
     
+#elif DEMO_MODE == DEMO_MODE_DYNAMIC
+    
+    self.sheetController = [[GDAddRemoveSheetViewController alloc] init];
+    self.sheetController.delegate = self;
+    
+    self.window.rootViewController = self.sheetController;
+    [self.window makeKeyAndVisible];
+    
 #else
     
     self.sheetController = [GDSheetController sheetControllerWithControllers:@[nav1, nav2, nav3, nav4]
@@ -86,10 +97,10 @@
     
 #endif
     
-    
-    
     return YES;
 }
+
+#pragma mark - SheetController Delegate
 
 - (void)sheetController:(GDSheetController *)controller
 willChangeEmbeddedController:(UIViewController*)embeddedController
@@ -106,6 +117,8 @@ didChangeEmbeddedController:(UIViewController*)embeddedController
 {
     NSLog(@"[%@] Embedded %@ did change from %i to %i", NSStringFromClass([controller class]), NSStringFromClass([embeddedController class]), fromState, toState);
 }
+
+#pragma mark - Application delegate
 
 - (void)applicationWillResignActive:(UIApplication *)application
 {
