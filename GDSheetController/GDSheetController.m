@@ -269,6 +269,8 @@ NSString * const GDSheetControllerSheetShadowOpacityKey                         
 ////////////////////////////////////////////////////////////////////////////////
 #pragma mark - Public methods
 
+#pragma mark Embedded controllers state management
+
 - (void)setEmbeddedController:(UIViewController*)embeddedController
                       toState:(GDSheetState)state
 {
@@ -297,6 +299,74 @@ NSString * const GDSheetControllerSheetShadowOpacityKey                         
     {
         if(completion) completion(NO);
     }
+}
+
+#pragma mark Embedded controllers adding / removing
+
+- (BOOL)addEmbeddedController:(UIViewController*)embeddedController
+{
+    BOOL addedSuccesfully = (embeddedController != nil);
+    
+    if(addedSuccesfully)
+    {
+        embeddedController.sheetController = self;
+        
+        GDSheetView *view = [[GDSheetView alloc] initWithEmbeddedController:embeddedController
+                                                            sheetController:self];
+        view.delegate = self;
+        view.top = self.view.bounds.size.height;
+        view.currentScalingFactor = [self sheetFullscreenScaleFactor];
+        
+        [self.sheetControllers addObject:view];
+        
+        [self addChildViewController:embeddedController];
+        [self.view addSubview:view];
+        [embeddedController didMoveToParentViewController:self];
+        
+        [self relayoutSheets];
+    }
+    
+    return addedSuccesfully;
+}
+
+- (BOOL)removeEmbeddedController:(UIViewController*)embeddedController
+{
+    BOOL removedSuccesfully = (embeddedController != nil);
+    
+    if(removedSuccesfully)
+    {
+        GDSheetView *sheet = [self sheetFromEmbeddedController:embeddedController];
+        removedSuccesfully &= (sheet != nil);
+        
+        if(removedSuccesfully)
+        {
+            [self.sheetControllers removeObject:sheet];
+            
+            [sheet.embeddedViewController willMoveToParentViewController:nil];
+            [sheet.embeddedViewController removeFromParentViewController];
+            [sheet removeFromSuperview];
+            
+            [self relayoutSheets];
+        }
+    }
+    
+    return removedSuccesfully;
+}
+
+////////////////////////////////////////////////////////////////////////////////
+#pragma mark - Methods for using as a subclass
+
+- (void)setEmbeddedControllers:(NSArray*)arrayOfControllers
+{
+    [self setEmbeddedControllers:arrayOfControllers withOptions:nil];
+}
+
+- (void)setEmbeddedControllers:(NSArray*)arrayOfControllers withOptions:(NSDictionary*)options
+{
+    [self removeControllerSheets];
+    
+    self.controllerOptions = [options mutableCopy];
+    [self addControllerSheets:arrayOfControllers];
 }
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -686,8 +756,19 @@ NSString * const GDSheetControllerSheetShadowOpacityKey                         
 
 #pragma mark Layout Subviews
 
+- (void)zeroingSheets
+{
+    for(GDSheetView *sheet in self.sheetControllers)
+    {
+        sheet.top                       = self.view.bounds.size.height;
+        sheet.currentScalingFactor      = [self sheetFullscreenScaleFactor];
+    }
+}
+
 - (void)relayoutSheets
 {
+    self.numberOfSheets = [self.sheetControllers count];
+    
     NSUInteger idx = 0;
     for(GDSheetView *sheet in self.sheetControllers)
     {
@@ -695,7 +776,8 @@ NSString * const GDSheetControllerSheetShadowOpacityKey                         
         
         if(self.controllerState == GDSheetState_Default)
         {
-            sheet.top = sheet.defaultTopInSuperview;
+            sheet.top                   = sheet.defaultTopInSuperview;
+            sheet.currentScalingFactor  = [self scaleFactorOfSheetAtIndex:idx];
         }
         
         idx++;

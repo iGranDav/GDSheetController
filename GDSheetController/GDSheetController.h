@@ -292,6 +292,8 @@ didChangeEmbeddedController:(UIViewController*)embeddedController
 - (id)initWithControllers:(NSArray *)arrayOfControllers
                   options:(NSDictionary *)options;
 
+#pragma mark Embedded controllers state management
+
 - (void)setEmbeddedController:(UIViewController*)embeddedController
                       toState:(GDSheetState)state;
 
@@ -299,5 +301,11 @@ didChangeEmbeddedController:(UIViewController*)embeddedController
                       toState:(GDSheetState)state
                      animated:(BOOL)animated
                    completion:(GDDefaultCompletionHandler)completion;
+
+#pragma mark Embedded controllers adding / removing
+
+- (BOOL)addEmbeddedController:(UIViewController*)embeddedController;
+
+- (BOOL)removeEmbeddedController:(UIViewController*)embeddedController;
 
 @end
