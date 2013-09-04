@@ -36,6 +36,7 @@
 #pragma mark - Imports
 
 #import "GDSheetController.h"
+#import "GDSheetController_subclass.h"
 #import "GDSheetView.h"
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -199,6 +200,16 @@ NSString * const GDSheetControllerSheetShadowOpacityKey                         
         
         [self commonInitGDSheetController];
         [self addControllerSheets:arrayOfControllers];
+    }
+    return self;
+}
+
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+{
+    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+    if (self)
+    {
+        [self commonInitGDSheetController];
     }
     return self;
 }
