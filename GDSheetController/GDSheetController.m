@@ -149,6 +149,22 @@ NSString * const GDSheetControllerSheetShadowOpacityKey                         
 ////////////////////////////////////////////////////////////////////////////////
 #pragma mark - Implementation
 
+@implementation GDEmbeddedControllers
+
+- (id)initWithEmbeddedController:(UIViewController*)embedded
+               previewController:(UIViewController*)preview
+{
+    self = [super init];
+    if(self)
+    {
+        self.embeddedController = embedded;
+        self.previewController = preview;
+    }
+    return self;
+}
+
+@end
+
 @implementation GDSheetController
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -320,18 +336,41 @@ NSString * const GDSheetControllerSheetShadowOpacityKey                         
     
     if(addedSuccesfully)
     {
-        embeddedController.sheetController = self;
+        UIViewController *embedded = embeddedController;
+        UIViewController *preview  = nil;
         
-        GDSheetView *view = [[GDSheetView alloc] initWithEmbeddedController:embeddedController
-                                                            sheetController:self];
+        if([embeddedController isKindOfClass:[GDEmbeddedControllers class]])
+        {
+            embedded = [(GDEmbeddedControllers*)embeddedController embeddedController];
+            preview  = [(GDEmbeddedControllers*)embeddedController previewController];
+        }
+        
+        embedded.sheetController = self;
+        
+        GDSheetView *view = nil;
+        
+        if(preview)
+        {
+            view = [[GDSheetView alloc] initWithEmbeddedController:embedded
+                                                 previewController:preview
+                                                   sheetController:self];
+        }
+        else
+        {
+            view = [[GDSheetView alloc] initWithEmbeddedController:embedded
+                                                   sheetController:self];
+        }
+
         view.delegate = self;
         view.top = self.view.bounds.size.height;
         view.currentScalingFactor = [self sheetFullscreenScaleFactor];
         
         [self.sheetControllers addObject:view];
         
+        if(preview) [self addChildViewController:preview];
         [self addChildViewController:embeddedController];
         [self.view addSubview:view];
+        if(preview) [preview didMoveToParentViewController:self];
         [embeddedController didMoveToParentViewController:self];
         
         [self relayoutSheets];
@@ -805,10 +844,31 @@ NSString * const GDSheetControllerSheetShadowOpacityKey                         
     
     for(UIViewController *vc in arrayOfControllers)
     {
-        vc.sheetController = self;
+        UIViewController *embedded = vc;
+        UIViewController *preview  = nil;
         
-        GDSheetView *view = [[GDSheetView alloc] initWithEmbeddedController:vc
-                                                            sheetController:self];
+        if([vc isKindOfClass:[GDEmbeddedControllers class]])
+        {
+            embedded = [(GDEmbeddedControllers*)vc embeddedController];
+            preview  = [(GDEmbeddedControllers*)vc previewController];
+        }
+        
+        embedded.sheetController = self;
+        
+        GDSheetView *view = nil;
+        
+        if(preview)
+        {
+            view = [[GDSheetView alloc] initWithEmbeddedController:embedded
+                                                 previewController:preview
+                                                   sheetController:self];
+        }
+        else
+        {
+            view = [[GDSheetView alloc] initWithEmbeddedController:embedded
+                                                   sheetController:self];
+        }
+        
         view.delegate = self;
         
         [self.sheetControllers addObject:view];
@@ -817,9 +877,11 @@ NSString * const GDSheetControllerSheetShadowOpacityKey                         
         view.top                    = view.defaultTopInSuperview;
         view.currentScalingFactor   = [self scaleFactorOfSheetAtIndex:idx];
         
-        [self addChildViewController:vc];
+        if(preview) [self addChildViewController:preview];
+        [self addChildViewController:embedded];
         [self.view addSubview:view];
-        [vc didMoveToParentViewController:self];
+        if(preview) [preview didMoveToParentViewController:self];
+        [embedded didMoveToParentViewController:self];
         
         idx++;
     }

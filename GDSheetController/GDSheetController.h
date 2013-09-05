@@ -34,6 +34,24 @@ THE SOFTWARE.
 #import <UIKit/UIKit.h>
 #import "UIViewController+GDSheetController.h"
 
+/**
+ *	GDEmbeddedControllers is an object encapsulating a sheet's embedded
+ *  controller and its preview controller.
+ *
+ *  @note You can use it with all existing methods on GDSheetController, and you
+ *        can also mix this object with other regular view controllers if
+ *        you don't want to have preview for all your sheets
+ */
+@interface GDEmbeddedControllers : UIViewController
+
+@property (nonatomic, strong) UIViewController *embeddedController;
+@property (nonatomic, strong) UIViewController *previewController;
+
+- (id)initWithEmbeddedController:(UIViewController*)embedded
+               previewController:(UIViewController*)preview;
+
+@end
+
 ////////////////////////////////////////////////////////////////////////////////
 #pragma mark - Types
 

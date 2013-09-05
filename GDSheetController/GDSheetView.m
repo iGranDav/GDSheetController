@@ -57,6 +57,9 @@
 
 @property (nonatomic, strong) UIPanGestureRecognizer    *panGesture;
 @property (nonatomic, strong) UITapGestureRecognizer    *tapGesture;
+@property (nonatomic, strong) UIPanGestureRecognizer    *panPreviewGesture;
+@property (nonatomic, strong) UITapGestureRecognizer    *tapPreviewGesture;
+
 
 @property (nonatomic, assign) CGFloat                   panGestureTopOffset;
 
@@ -113,35 +116,19 @@
     self.tapGesture.numberOfTapsRequired = self.sheetNumberOfTapRequired;
     self.tapGesture.delegate = self;
     
-    if(self.embeddedViewController)
-    {
-        UIView *gesturesView = nil;
-        
-        if ([self.embeddedViewController isKindOfClass:[UINavigationController class]]
-            && self.sheetGestureScope == GDSheetGestureScope_NavBar)
-        {
-            gesturesView = [(UINavigationController*)self.embeddedViewController navigationBar];
-        }
-        else
-        {
-            gesturesView = self.embeddedViewController.view;
-        }
-        
-        if(gesturesView)
-        {
-            //Add pan gesture to view
-            [gesturesView addGestureRecognizer:self.panGesture];
-            
-            //Add Tap gesture
-            if (self.sheetEnableTapGesture)
-            {
-                if(self.sheetGestureScope != GDSheetGestureScope_AllButTap)
-                    [gesturesView addGestureRecognizer:self.tapGesture];
-                else if ([self.embeddedViewController isKindOfClass:[UINavigationController class]])
-                    [[(UINavigationController*)self.embeddedViewController navigationBar] addGestureRecognizer:self.tapGesture];
-            }
-        }
-    }
+    self.panPreviewGesture = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(didPerformPanGesture:)];
+    self.panPreviewGesture.delegate = self;
+    self.tapPreviewGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(didPerformTapGesture:)];
+    self.tapPreviewGesture.numberOfTapsRequired = self.sheetNumberOfTapRequired;
+    self.tapPreviewGesture.delegate = self;
+    
+    [self addPanGesture:self.panGesture
+             tapGesture:self.tapGesture
+           onController:self.embeddedViewController];
+    
+    [self addPanGesture:self.panPreviewGesture
+             tapGesture:self.tapPreviewGesture
+           onController:self.previewViewController];
 }
 
 - (void)configureSheetOptions:(GDSheetController*)sheetController
@@ -199,15 +186,25 @@
     return self;
 }
 
+- (id)initWithEmbeddedController:(UIViewController*)embeddedController
+               previewController:(UIViewController*)previewController
+                 sheetController:(GDSheetController*)sheetController
+{
+    self = [super initWithFrame:embeddedController.view.bounds];
+    if(self)
+    {
+        [self configureSheetOptions:sheetController];
+        
+        self.embeddedViewController = embeddedController;
+        self.previewViewController = previewController;
+        
+        [self commonInitGDSheetView];
+    }
+    return self;
+}
+
 ////////////////////////////////////////////////////////////////////////////////
 #pragma mark - Superclass Overrides
-
--(void)drawRect:(CGRect)rect
-{
-    [super drawRect:rect];
-    
-    [self redrawShadowsForRect:rect];
-}
 
 -(void)layoutSubviews
 {
@@ -248,10 +245,39 @@
     _embeddedViewController.view.layer.cornerRadius = self.sheetCornerRadius;
     _embeddedViewController.view.clipsToBounds = YES;
     
-    self.frame = _embeddedViewController.view.frame;
+    _embeddedViewController.view.frame = self.bounds;
     [self addSubview:_embeddedViewController.view];
     
+    if(_panGesture && _tapGesture)
+    {
+        [self addPanGesture:self.panGesture
+                 tapGesture:self.tapGesture
+               onController:_embeddedViewController];
+    }
+    
     [self didChangeValueForKey:@"embeddedViewController"];
+}
+
+- (void)setPreviewViewController:(UIViewController *)previewViewController
+{
+    [self willChangeValueForKey:@"previewViewController"];
+    _previewViewController = previewViewController;
+    
+    _previewViewController.view.layer.cornerRadius = self.sheetCornerRadius;
+    _previewViewController.view.clipsToBounds = YES;
+    
+    _previewViewController.view.frame = self.bounds;
+    [self addSubview:_previewViewController.view];
+    [self bringSubviewToFront:_previewViewController.view];
+    
+    if(_panPreviewGesture && _tapPreviewGesture)
+    {
+        [self addPanGesture:self.panPreviewGesture
+                 tapGesture:self.tapPreviewGesture
+               onController:_previewViewController];
+    }
+    
+    [self didChangeValueForKey:@"previewViewController"];
 }
 
 - (void)setCurrentScalingFactor:(CGFloat)currentScalingFactor
@@ -305,11 +331,74 @@
     return topController;
 }
 
+/**
+ *	Gets the preview controller on top of the preview navigation controller (if exists)
+ *  or the preview controller itself
+ *
+ *	@return	the top preview view controller
+ */
+- (UIViewController*)topPreviewViewController
+{
+    UIViewController *topController = nil;
+    if([self.previewViewController isKindOfClass:[UINavigationController class]])
+    {
+        topController = [(UINavigationController*)self.previewViewController topViewController];
+    }
+    else
+    {
+        topController = self.previewViewController;
+    }
+    
+    return topController;
+}
+
 ////////////////////////////////////////////////////////////////////////////////
 #pragma mark - Actions
 
 ////////////////////////////////////////////////////////////////////////////////
 #pragma mark - Private methods
+
+#pragma mark Gestures helpers
+
+- (void)addPanGesture:(UIPanGestureRecognizer*)panGesture
+           tapGesture:(UITapGestureRecognizer*)tapGesture
+         onController:(UIViewController*)aController
+{
+    if(aController)
+    {
+        UIView *gesturesView = nil;
+        
+        if ([aController isKindOfClass:[UINavigationController class]]
+            && self.sheetGestureScope == GDSheetGestureScope_NavBar)
+        {
+            gesturesView = [(UINavigationController*)aController navigationBar];
+        }
+        else
+        {
+            gesturesView = aController.view;
+        }
+        
+        if(gesturesView)
+        {
+            //Add pan gesture to view
+            [gesturesView addGestureRecognizer:panGesture];
+            
+            //Add Tap gesture
+            if (self.sheetEnableTapGesture)
+            {
+                if((self.sheetGestureScope != GDSheetGestureScope_AllButTap)
+                   || ![aController isKindOfClass:[UINavigationController class]])
+                {
+                    [gesturesView addGestureRecognizer:tapGesture];
+                }
+                else
+                {
+                    [[(UINavigationController*)aController navigationBar] addGestureRecognizer:tapGesture];
+                }
+            }
+        }
+    }
+}
 
 #pragma mark Data helpers
 
@@ -319,11 +408,19 @@
 
 - (void)allowUserInteraction:(BOOL)isAllowed
 {
-    if ([self.embeddedViewController isKindOfClass:[UINavigationController class]]) {
-        [[(UINavigationController*)self.embeddedViewController topViewController].view setUserInteractionEnabled:isAllowed];
+    // Apply user interaction only when controllers are embedded in navigation controllers
+    // to avoid blocking gestures on simple controllers
+    
+    //Embedded
+    if([self.embeddedViewController isKindOfClass:[UINavigationController class]])
+    {
+        [[self topEmbeddedViewController].view setUserInteractionEnabled:isAllowed];
     }
-    else {
-        [self.embeddedViewController.view setUserInteractionEnabled:isAllowed];
+    
+    //Preview
+    if([self.previewViewController isKindOfClass:[UINavigationController class]])
+    {
+        [[self topPreviewViewController].view setUserInteractionEnabled:isAllowed];
     }
 }
 
@@ -365,6 +462,31 @@
     else
     {
         [self setTransform:CGAffineTransformMakeScale(scaleFactor, scaleFactor)];
+    }
+}
+
+#pragma mark Controllers switching
+
+- (void)switchFromPreviewToEmbeddedController
+{
+    if(self.previewViewController)
+    {
+        self.previewViewController.view.alpha = 0.f;
+    }
+    
+    self.embeddedViewController.view.alpha = 1.f;
+}
+
+- (void)switchBackToPreviewFromEmbeddedController
+{
+    if(self.previewViewController)
+    {
+        self.previewViewController.view.alpha = 1.f;
+        self.embeddedViewController.view.alpha = 0.f;
+    }
+    else
+    {
+        self.embeddedViewController.view.alpha = 1.f;
     }
 }
 
@@ -411,6 +533,10 @@
                                  self.embeddedViewController.view.frame              = self.bounds;
                                  self.layer.cornerRadius                             = 3.0;
                                  self.embeddedViewController.view.layer.cornerRadius = 3.0;
+                                 
+                                 self.previewViewController.view.frame               = self.bounds;
+                                 self.layer.cornerRadius                             = 3.0;
+                                 self.previewViewController.view.layer.cornerRadius  = 3.0;
                              }
                              
                              if(fromUser)
@@ -427,12 +553,15 @@
     // Set corner radius
     self.layer.cornerRadius                             = self.sheetCornerRadius;
     self.embeddedViewController.view.layer.cornerRadius = self.sheetCornerRadius;
+    self.previewViewController.view.layer.cornerRadius  = self.sheetCornerRadius;
     
     //Full Screen State
     if (state == GDSheetState_Fullscreen)
     {
         [self allowUserInteraction:YES];
         [self expandSheetToFullSize:animated];
+        
+        [self switchFromPreviewToEmbeddedController];
         
         if([self respondsToSelector:@selector(motionEffects)])
         {
@@ -451,6 +580,8 @@
         [self allowUserInteraction:self.sheetUserInteractionEnabledInDefaultState];
         [self shrinkSheetToScaledSize:animated];
         [self setTop:self.defaultTopInSuperview];
+        
+        [self switchBackToPreviewFromEmbeddedController];
     }
     //Hidden State - Bottom
     else if (state == GDSheetState_HiddenBottom)
@@ -458,6 +589,8 @@
         //Move it off screen and far enough down that the shadow does not appear on screen
         CGFloat offscreenOrigin = self.superview.frame.size.height + abs(self.sheetShadowOffset.height)*3;
         [self setTop: offscreenOrigin];
+        
+        [self switchBackToPreviewFromEmbeddedController];
     }
     //Hidden State - Top
     else if (state == GDSheetState_HiddenTop) {
@@ -472,6 +605,8 @@
         {
             [self setTop:0.f];
         }
+        
+        [self switchBackToPreviewFromEmbeddedController];
     }
     
     //Update to the new state

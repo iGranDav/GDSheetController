@@ -72,6 +72,7 @@ typedef void(^GDSheetCompletionHandler)(GDSheetView *sheet, GDSheetState previou
 #pragma mark - Properties
 
 @property (nonatomic, strong)                       UIViewController          *embeddedViewController;
+@property (nonatomic, strong)                       UIViewController          *previewViewController;
 @property (nonatomic, assign, readonly)             UIViewController          *topEmbeddedViewController;
 @property (nonatomic, weak)                         id<GDSheetViewDelegate>   delegate;
 
@@ -87,6 +88,10 @@ typedef void(^GDSheetCompletionHandler)(GDSheetView *sheet, GDSheetState previou
 #pragma mark - Instance Methods
 
 - (id)initWithEmbeddedController:(UIViewController*)embeddedController
+                 sheetController:(GDSheetController*)sheetController;
+
+- (id)initWithEmbeddedController:(UIViewController*)embeddedController
+               previewController:(UIViewController*)previewController
                  sheetController:(GDSheetController*)sheetController;
 
 - (void)shrinkSheetToScaledSize:(BOOL)animated;
