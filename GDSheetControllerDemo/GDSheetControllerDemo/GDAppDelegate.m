@@ -13,6 +13,7 @@
 #import "GDSecondViewController.h"
 #import "GDThirdViewController.h"
 #import "GDFourthViewController.h"
+#import "GDPreviewViewController.h"
 
 #import "GDAddRemoveSheetViewController.h"
 
@@ -20,7 +21,8 @@
 #define DEMO_MODE_EMBEDDED      1
 #define DEMO_MODE_DYNAMIC       2
 
-#define DEMO_MODE               DEMO_MODE_DYNAMIC            //<! Choose your demo mode here
+#define DEMO_MODE               DEMO_MODE_ASROOT            //<! Choose your demo mode here
+#define USES_PREVIEW            0
 
 @interface GDAppDelegate () <GDSheetControllerDelegate>
 
@@ -44,6 +46,16 @@
     UINavigationController *nav3 = [[UINavigationController alloc] initWithRootViewController:tVC];
     UINavigationController *nav4 = [[UINavigationController alloc] initWithRootViewController:qVC];
     
+#if USES_PREVIEW
+    GDPreviewViewController *pVC = [GDPreviewViewController new];
+
+    GDEmbeddedControllers *sheet2 = [[GDEmbeddedControllers alloc] initWithEmbeddedController:nav2
+                                                                            previewController:pVC];
+    NSArray *controllers = @[nav1, sheet2, nav3, nav4];
+#else
+    NSArray *controllers = @[nav1, nav2, nav3, nav4];
+#endif
+    
 #if DEMO_MODE == DEMO_MODE_EMBEDDED
     
     /**
@@ -52,7 +64,7 @@
      */
     NSDictionary *options = @{GDSheetControllerSheetFullscreenModeKey:@(GDSheetFullscreenMode_Screen)};
     
-    self.sheetController = [GDSheetController sheetControllerWithControllers:@[nav1, nav2, nav3, nav4]
+    self.sheetController = [GDSheetController sheetControllerWithControllers:controllers
                                                                      options:options];
     self.sheetController.delegate = self;
     
@@ -88,7 +100,7 @@
     
 #else
     
-    self.sheetController = [GDSheetController sheetControllerWithControllers:@[nav1, nav2, nav3, nav4]
+    self.sheetController = [GDSheetController sheetControllerWithControllers:controllers
                                                                      options:nil];
     self.sheetController.delegate = self;
     

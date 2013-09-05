@@ -12,6 +12,8 @@
 		81274AFF17CCB71C009D0A06 /* UIViewController+GDSheetController.m in Sources */ = {isa = PBXBuildFile; fileRef = 81274AFE17CCB71C009D0A06 /* UIViewController+GDSheetController.m */; };
 		815ADBEB17D73AF100618656 /* GDAddRemoveSheetViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 815ADBE917D73AF100618656 /* GDAddRemoveSheetViewController.m */; };
 		815ADBEC17D73AF100618656 /* GDAddRemoveSheetViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 815ADBEA17D73AF100618656 /* GDAddRemoveSheetViewController.xib */; };
+		815ADBF117D7926C00618656 /* GDPreviewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 815ADBEF17D7926C00618656 /* GDPreviewViewController.m */; };
+		815ADBF217D7926C00618656 /* GDPreviewViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 815ADBF017D7926C00618656 /* GDPreviewViewController.xib */; };
 		8176AA0917CBA437004E6001 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8176AA0717CBA437004E6001 /* Default-568h@2x.png */; };
 		8176AA0A17CBA437004E6001 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8176AA0817CBA437004E6001 /* Default@2x.png */; };
 		8176AA0D17CBA5A1004E6001 /* GDFourthViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8176AA0C17CBA5A1004E6001 /* GDFourthViewController.m */; };
@@ -33,7 +35,6 @@
 		81D84D7817C7ADCD003B4272 /* GDFirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 81D84D7717C7ADCD003B4272 /* GDFirstViewController.m */; };
 		81D84D7B17C7ADFA003B4272 /* GDSecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 81D84D7A17C7ADFA003B4272 /* GDSecondViewController.m */; };
 		81D84D7E17C7AE0E003B4272 /* GDThirdViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 81D84D7D17C7AE0E003B4272 /* GDThirdViewController.m */; };
-		81D84D8217C7AF09003B4272 /* GDSheetControllerDemo-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 81D84D8017C7AF09003B4272 /* GDSheetControllerDemo-Info.plist */; };
 		81D84D8417C7AF47003B4272 /* GDSheetControllerDemoTests-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 81D84D8317C7AF47003B4272 /* GDSheetControllerDemoTests-Info.plist */; };
 		81DAB65D17CE4EE00060EC53 /* GDMainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 81DAB65C17CE4EE00060EC53 /* GDMainViewController.xib */; };
 /* End PBXBuildFile section */
@@ -57,6 +58,9 @@
 		815ADBE917D73AF100618656 /* GDAddRemoveSheetViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GDAddRemoveSheetViewController.m; sourceTree = "<group>"; };
 		815ADBEA17D73AF100618656 /* GDAddRemoveSheetViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GDAddRemoveSheetViewController.xib; sourceTree = "<group>"; };
 		815ADBED17D73BCE00618656 /* GDSheetController_subclass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GDSheetController_subclass.h; sourceTree = "<group>"; };
+		815ADBEE17D7926C00618656 /* GDPreviewViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GDPreviewViewController.h; sourceTree = "<group>"; };
+		815ADBEF17D7926C00618656 /* GDPreviewViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GDPreviewViewController.m; sourceTree = "<group>"; };
+		815ADBF017D7926C00618656 /* GDPreviewViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GDPreviewViewController.xib; sourceTree = "<group>"; };
 		8176AA0717CBA437004E6001 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-568h@2x.png"; path = "Images.xcassets/LaunchImage.launchimage/Default-568h@2x.png"; sourceTree = "<group>"; };
 		8176AA0817CBA437004E6001 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default@2x.png"; path = "Images.xcassets/LaunchImage.launchimage/Default@2x.png"; sourceTree = "<group>"; };
 		8176AA0B17CBA5A1004E6001 /* GDFourthViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GDFourthViewController.h; sourceTree = "<group>"; };
@@ -236,6 +240,9 @@
 				81D84D7D17C7AE0E003B4272 /* GDThirdViewController.m */,
 				8176AA0B17CBA5A1004E6001 /* GDFourthViewController.h */,
 				8176AA0C17CBA5A1004E6001 /* GDFourthViewController.m */,
+				815ADBEE17D7926C00618656 /* GDPreviewViewController.h */,
+				815ADBEF17D7926C00618656 /* GDPreviewViewController.m */,
+				815ADBF017D7926C00618656 /* GDPreviewViewController.xib */,
 			);
 			name = Main;
 			sourceTree = "<group>";
@@ -320,8 +327,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				8176AA0A17CBA437004E6001 /* Default@2x.png in Resources */,
+				815ADBF217D7926C00618656 /* GDPreviewViewController.xib in Resources */,
 				815ADBEC17D73AF100618656 /* GDAddRemoveSheetViewController.xib in Resources */,
-				81D84D8217C7AF09003B4272 /* GDSheetControllerDemo-Info.plist in Resources */,
 				81D84D5717C65FEC003B4272 /* Images.xcassets in Resources */,
 				8176AA0917CBA437004E6001 /* Default-568h@2x.png in Resources */,
 				81D84D5417C65FEC003B4272 /* InfoPlist.strings in Resources */,
@@ -345,6 +352,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				815ADBF117D7926C00618656 /* GDPreviewViewController.m in Sources */,
 				8176AA0D17CBA5A1004E6001 /* GDFourthViewController.m in Sources */,
 				81D84D4717C65FB1003B4272 /* GDSheetController.m in Sources */,
 				81D84D4917C65FB1003B4272 /* GDSheetView.m in Sources */,
@@ -473,10 +481,16 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"/Users/dbonnet/Documents/Projets/Experiments/GDSheetViewController/GDSheetControllerDemo/**",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "GDSheetControllerDemo/GDSheetControllerDemo-Prefix.pch";
+				HEADER_SEARCH_PATHS = "/Users/dbonnet/Documents/Projets/Experiments/GDSheetViewController/GDSheetControllerDemo/**";
 				INFOPLIST_FILE = "GDSheetControllerDemo/GDSheetControllerDemo-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -488,10 +502,16 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"/Users/dbonnet/Documents/Projets/Experiments/GDSheetViewController/GDSheetControllerDemo/**",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "GDSheetControllerDemo/GDSheetControllerDemo-Prefix.pch";
+				HEADER_SEARCH_PATHS = "/Users/dbonnet/Documents/Projets/Experiments/GDSheetViewController/GDSheetControllerDemo/**";
 				INFOPLIST_FILE = "GDSheetControllerDemo/GDSheetControllerDemo-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
