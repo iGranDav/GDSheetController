@@ -6,7 +6,19 @@ GDSheetController
 <img src="https://raw.github.com/iGranDav/GDSheetController/master/GDSheetControllerDemo/GDSheetControllerDemo/Images/ios6_screen.png" width="35%"/>
 <img src="https://raw.github.com/iGranDav/GDSheetController/master/GDSheetControllerDemo/GDSheetControllerDemo/Images/ios7_screen.png" width="35%"/>
 
-**Note**: If ``GDSheetController`` provide a better user experience in portrait it will be usable in landscape too.
+**Note**: If ``GDSheetController`` provide a better user experience in portrait it will be usable in landscape later.
+
+Features
+--------
+- Present your controllers in a **stack of sheets**,
+- Dynamically **add** or **remove** sheets at runtime,
+- Use **preview controller** to preview your sheets when they are presented as a stack.
+ - In __*Evernote Food 2.0*__ they preview with a picture when their embedded controller contains content,
+ - Sometimes your controller as a sheet does not look as good as in fullscreen.
+- Integrate ``GDSheetController`` as:
+ - a **root controller** of your window,
+ - a **child view controller** in your controllers hierarchy,
+ - a **subclass** because you need to interact with content above your sheet controller.
 
 Installation
 ------------
@@ -32,18 +44,51 @@ This component was designed and tested for **iOS 6** and **iOS 7** but may be co
 
 Usage
 -----
-You may need to use ``GDSheetController`` as a root view controller. No need to subclass it.
 
-###Example in your appDelegate
+###As a root controller (``DEMO_MODE_ASROOT``)
+
+You may need to use ``GDSheetController`` as a root view controller when this is the entry point of your application.
+
+####Example in your appDelegate
 
 ```objc
+NSArray *arrayOfControllers = @[vc1, vc2, vc3];
+GDSheetController *sheetC = [GDSheetController sheetControllerWithControllers:arrayOfControllers
+                                                                      options:nil];
+self.window.rootViewController = sheetC;
+```
+
+###As a child controller (``DEMO_MODE_EMBEDDED``)
+
+Use ``GDSheetController`` as a child view controller when you need to display it in a navigation controller for example.
+
+####Example
+
+```objc
+//Same initialization as root usage
 NSArray *arrayOfControllers = @[vc1, vc2, vc3];
 [GDSheetController sheetControllerWithControllers:arrayOfControllers
                                           options:nil];
 ```
 
+###As a subclass (``DEMO_MODE_DYNAMIC``)
+
+Use ``GDSheetController`` as a subclass when you need to provide some controls above your sheets at the same level.
+
+####Steps
+
+1. Subclass ``GDSheetController``: ``@interface MyAwesomeController : GDSheetController``
+2. Add ``#import "GDSheetController_subclass.h"`` in your implementation file.
+3. Call in your ``viewDidLoad`` method
+```objc
+//Options here, provide you a top extra space of 70 points to put your widgets
+NSArray *arrayOfControllers = @[vc1, vc2, vc3];
+[self setEmbeddedControllers:arrayOfControllers
+                 withOptions:@{GDSheetControllerSheetsStartFromTopKey:@(70)}];
+```
+
 ###Options and personalization
-A lot of options are available in ``GHSheetController.h`` and can be passed in options dictionary at init.
+A lot of options are available in ``GDSheetController.h`` and can be passed in options dictionary at init.
 
 Example:
 ```objc
