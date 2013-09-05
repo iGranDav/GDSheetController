@@ -28,22 +28,7 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         
-        self.controllers = [[NSMutableArray alloc] init];
-        
-        GDFirstViewController   *fVC = [GDFirstViewController new];
-        GDSecondViewController  *sVC = [GDSecondViewController new];
-        GDThirdViewController   *tVC = [GDThirdViewController new];
-        GDFourthViewController  *qVC = [GDFourthViewController new];
-        
-        [self.controllers addObjectsFromArray:@[fVC, sVC, tVC, qVC]];
-        
-        UINavigationController *nav1 = [[UINavigationController alloc] initWithRootViewController:fVC];
-        UINavigationController *nav2 = [[UINavigationController alloc] initWithRootViewController:sVC];
-        UINavigationController *nav3 = [[UINavigationController alloc] initWithRootViewController:tVC];
-        UINavigationController *nav4 = [[UINavigationController alloc] initWithRootViewController:qVC];
-        
-        [self setEmbeddedControllers:@[nav1, nav2, nav3, nav4]
-                         withOptions:@{GDSheetControllerSheetsStartFromTopKey:@(70)}];
+        self.controllers = [[NSMutableArray alloc] init];   
     }
     return self;
 }
@@ -52,6 +37,21 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    
+    GDFirstViewController   *fVC = [GDFirstViewController new];
+    GDSecondViewController  *sVC = [GDSecondViewController new];
+    GDThirdViewController   *tVC = [GDThirdViewController new];
+    GDFourthViewController  *qVC = [GDFourthViewController new];
+    
+    [self.controllers addObjectsFromArray:@[fVC, sVC, tVC, qVC]];
+    
+    UINavigationController *nav1 = [[UINavigationController alloc] initWithRootViewController:fVC];
+    UINavigationController *nav2 = [[UINavigationController alloc] initWithRootViewController:sVC];
+    UINavigationController *nav3 = [[UINavigationController alloc] initWithRootViewController:tVC];
+    UINavigationController *nav4 = [[UINavigationController alloc] initWithRootViewController:qVC];
+    
+    [self setEmbeddedControllers:@[nav1, nav2, nav3, nav4]
+                     withOptions:@{GDSheetControllerSheetsStartFromTopKey:@(70)}];
 }
 
 - (void)didReceiveMemoryWarning
