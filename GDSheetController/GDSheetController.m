@@ -983,6 +983,10 @@ NSString * const GDSheetControllerSheetShadowOpacityKey                         
 {
     GDSheetView *correspondingSheet = nil;
     
+    //In case of using GDEmbeddedControllers
+    if([embeddedController isKindOfClass:[GDEmbeddedControllers class]])
+        embeddedController = ((GDEmbeddedControllers*)embeddedController).embeddedController;
+    
     BOOL searchingNavController = [embeddedController isKindOfClass:[UINavigationController class]];
 
     for(GDSheetView *sheet in self.sheetControllers)
