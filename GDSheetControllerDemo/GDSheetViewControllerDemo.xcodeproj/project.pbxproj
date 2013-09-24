@@ -35,7 +35,6 @@
 		81D84D7817C7ADCD003B4272 /* GDFirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 81D84D7717C7ADCD003B4272 /* GDFirstViewController.m */; };
 		81D84D7B17C7ADFA003B4272 /* GDSecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 81D84D7A17C7ADFA003B4272 /* GDSecondViewController.m */; };
 		81D84D7E17C7AE0E003B4272 /* GDThirdViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 81D84D7D17C7AE0E003B4272 /* GDThirdViewController.m */; };
-		81D84D8417C7AF47003B4272 /* GDSheetControllerDemoTests-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 81D84D8317C7AF47003B4272 /* GDSheetControllerDemoTests-Info.plist */; };
 		81DAB65D17CE4EE00060EC53 /* GDMainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 81DAB65C17CE4EE00060EC53 /* GDMainViewController.xib */; };
 /* End PBXBuildFile section */
 
@@ -340,7 +339,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				81D84D8417C7AF47003B4272 /* GDSheetControllerDemoTests-Info.plist in Resources */,
 				81D84D5E17C65FF6003B4272 /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
