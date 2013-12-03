@@ -522,13 +522,6 @@
                              if (state == GDSheetState_Fullscreen) {
                                  // Fix scaling bug when expand to full size
                                  self.frame = self.superview.bounds;
-
-                                 if([self respondsToSelector:@selector(motionEffects)])
-                                 {
-                                     //iOS 7 layout support or old fullScreenLayout
-                                     CGRect statusBarFrame = [[UIApplication sharedApplication] statusBarFrame];
-                                     [self setTop:statusBarFrame.size.height];
-                                 }
                                  
                                  self.embeddedViewController.view.frame              = self.bounds;
                                  self.layer.cornerRadius                             = 3.0;
@@ -563,15 +556,13 @@
         
         [self switchFromPreviewToEmbeddedController];
         
-        if([self respondsToSelector:@selector(motionEffects)])
+        [self setTop:0.f];
+        
+        if([self.embeddedViewController isKindOfClass:[UINavigationController class]])
         {
-            //iOS 7 layout support or old fullScreenLayout
-            CGRect statusBarFrame = [[UIApplication sharedApplication] statusBarFrame];
-            [self setTop:statusBarFrame.size.height];
-        }
-        else
-        {
-            [self setTop:0.f];
+            //Hack to attach/detach navigationbar to status bar (64pt height instead of 44pt)
+            [(UINavigationController*)self.embeddedViewController setNavigationBarHidden:YES animated:NO];
+            [(UINavigationController*)self.embeddedViewController setNavigationBarHidden:NO animated:NO];
         }
     }
     //Default State
@@ -580,6 +571,13 @@
         [self allowUserInteraction:self.sheetUserInteractionEnabledInDefaultState];
         [self shrinkSheetToScaledSize:animated];
         [self setTop:self.defaultTopInSuperview];
+        
+        if([self.embeddedViewController isKindOfClass:[UINavigationController class]])
+        {
+            //Hack to attach/detach navigationbar to status bar (64pt height instead of 44pt)
+            [(UINavigationController*)self.embeddedViewController setNavigationBarHidden:YES animated:NO];
+            [(UINavigationController*)self.embeddedViewController setNavigationBarHidden:NO animated:NO];
+        }
         
         [self switchBackToPreviewFromEmbeddedController];
     }
@@ -595,16 +593,7 @@
     //Hidden State - Top
     else if (state == GDSheetState_HiddenTop) {
         
-        if([self respondsToSelector:@selector(motionEffects)])
-        {
-            //iOS 7 layout support or old fullScreenLayout
-            CGRect statusBarFrame = [[UIApplication sharedApplication] statusBarFrame];
-            [self setTop:statusBarFrame.size.height];
-        }
-        else
-        {
-            [self setTop:0.f];
-        }
+        [self setTop:0.f];
         
         [self switchBackToPreviewFromEmbeddedController];
     }
