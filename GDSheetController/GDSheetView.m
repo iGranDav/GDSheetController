@@ -771,7 +771,15 @@
 {
     BOOL shouldBegin = YES;
     
-    if([gestureRecognizer isEqual:self.panGesture])
+    if([gestureRecognizer isEqual:self.tapGesture])
+    {
+        if([self.embeddedViewController isKindOfClass:[UINavigationController class]])
+        {
+            //Don't begin pan gesture on fullscreen controller when tapping on navBar
+            shouldBegin = !(self.state == GDSheetState_Fullscreen);
+        }
+    }
+    else if([gestureRecognizer isEqual:self.panGesture])
     {
         CGPoint translation = [(UIPanGestureRecognizer*)gestureRecognizer translationInView: self];
         
