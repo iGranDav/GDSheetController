@@ -261,6 +261,12 @@ didChangeEmbeddedController:(UIViewController*)embeddedController
          toDisplayState:(GDSheetState)toState
        fromDisplayState:(GDSheetState)fromState;
 
+- (void)sheetController:(GDSheetController *)controller
+    willBeginPanGesture:(UIPanGestureRecognizer *)gesture;
+
+- (void)sheetController:(GDSheetController *)controller
+       didEndPanGesture:(UIPanGestureRecognizer *)gesture;
+
 @end
 
 ////////////////////////////////////////////////////////////////////////////////
