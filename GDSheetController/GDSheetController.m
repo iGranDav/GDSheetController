@@ -1074,6 +1074,11 @@ NSString * const GDSheetControllerSheetShadowOpacityKey                         
 
 - (void)sheet:(GDSheetView *)sheet willBeginPanningGesture:(UIPanGestureRecognizer*)gesture
 {
+    if([self.delegate respondsToSelector:@selector(sheetController:willBeginPanGesture:)])
+    {
+        [self.delegate performSelector:@selector(sheetController:willBeginPanGesture:) withObject:sheet.embeddedViewController withObject:gesture];
+    }
+    
     //Disable gestures on other sheets
     for(GDSheetView *aSheet in [self sheetsExceptSheet:sheet])
     {
@@ -1085,6 +1090,11 @@ NSString * const GDSheetControllerSheetShadowOpacityKey                         
 
 - (void)sheet:(GDSheetView *)sheet didEndPanningGesture:(UIPanGestureRecognizer*)gesture
 {
+    if([self.delegate respondsToSelector:@selector(sheetController:didEndPanGesture:)])
+    {
+        [self.delegate performSelector:@selector(sheetController:didEndPanGesture:) withObject:sheet.embeddedViewController withObject:gesture];
+    }
+    
     //Enable gestures on other sheets
     for(GDSheetView *aSheet in [self sheetsExceptSheet:sheet])
     {
