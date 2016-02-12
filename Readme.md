@@ -24,7 +24,7 @@ Installation
 ------------
 Installation may be as simple as using it ;-)
 
-###Cocoapods
+###CocoaPods
 If you are using **CocoaPods**
 
 1. Simply add ``pod 'GDSheetController', '~> 0.1.1'`` to your podfile
